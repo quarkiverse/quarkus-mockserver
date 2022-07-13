@@ -1,0 +1,18 @@
+[
+  {
+    "id": "2",
+    "httpRequest": {
+      "path": "/activity/data/1"
+    },
+    "httpResponse": {
+      "body": {
+        "type": "JSON",
+        "json": {
+          "key": "k1",
+          "value": "v2"
+        },
+        "contentType": "application/json"
+      }
+    }
+  }
+]

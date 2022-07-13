@@ -1,0 +1,10 @@
+name: Mockserver
+description: MockServer DevService for testing.
+metadata:
+  keywords:
+    - mockserver
+    - test
+#  guide: https://quarkiverse.github.io/quarkiverse-docs/mockserver/dev/
+  categories:
+    - "testing"
+  status: "preview"

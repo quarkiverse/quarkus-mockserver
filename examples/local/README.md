@@ -6,7 +6,8 @@ mvn clean compile quarkus:dev
 ```
 The MockServer will start with fix port `1080` which is defined in the `application.properties`
 ```properties
-%dev.quarkus.mockserver.devservices.config-dir=src/test/resources/mockserver-local
+%dev.quarkus.mockserver.devservices.config-file=src/test/resources/mockserver.properties
+%dev.quarkus.mockserver.devservices.config-dir=src/test/resources/mockserver
 %dev.quarkus.mockserver.devservices.port=1080
 ```
 The MockServer Dashboard [http://localhost:1080/mockserver/dashboard](http://localhost:1080/mockserver/dashboard)

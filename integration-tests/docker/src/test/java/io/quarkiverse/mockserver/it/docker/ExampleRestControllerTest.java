@@ -10,12 +10,14 @@ import java.util.Map;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockserver.client.MockServerClient;
 import org.mockserver.model.JsonBody;
 
 import io.quarkiverse.mockserver.test.InjectMockServerClient;
 import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.path.json.JsonPath;
 
 @QuarkusTest
 public class ExampleRestControllerTest extends AbstractTest {
@@ -39,15 +41,17 @@ public class ExampleRestControllerTest extends AbstractTest {
         request.key = "k1";
         request.value = "v1";
 
-        Map result = given()
+        JsonPath result = given()
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(request)
                 .post("/test/1")
                 .prettyPeek()
                 .then()
                 .statusCode(Response.Status.OK.getStatusCode())
-                .extract().body().as(Map.class);
-        System.out.println(result);
+                .extract().body().jsonPath();
+        Assertions.assertNotNull(result);
+        Assertions.assertEquals("value-A", result.getString("key-A"));
+        Assertions.assertEquals(1, result.getInt("key-B"));
     }
 
     @Test

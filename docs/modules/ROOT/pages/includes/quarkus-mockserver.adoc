@@ -84,4 +84,49 @@ The configuration directory to mount in the container /config.
 --|string 
 |
 
+
+a| [[quarkus-mockserver_quarkus.mockserver.host]]`link:#quarkus-mockserver_quarkus.mockserver.host[quarkus.mockserver.host]`
+
+[.description]
+--
+Host of the MockServer
+--|string 
+|required icon:exclamation-circle[title=Configuration property is required]
+
+
+a| [[quarkus-mockserver_quarkus.mockserver.port]]`link:#quarkus-mockserver_quarkus.mockserver.port[quarkus.mockserver.port]`
+
+[.description]
+--
+Port of the MockServer
+--|string 
+|required icon:exclamation-circle[title=Configuration property is required]
+
+
+a| [[quarkus-mockserver_quarkus.mockserver.endpoint]]`link:#quarkus-mockserver_quarkus.mockserver.endpoint[quarkus.mockserver.endpoint]`
+
+[.description]
+--
+Endpoint of the MockServer
+--|string 
+|required icon:exclamation-circle[title=Configuration property is required]
+
+
+a| [[quarkus-mockserver_quarkus.mockserver.client.host]]`link:#quarkus-mockserver_quarkus.mockserver.client.host[quarkus.mockserver.client.host]`
+
+[.description]
+--
+Host of the MockServer for the MockServerClient
+--|string 
+|required icon:exclamation-circle[title=Configuration property is required]
+
+
+a| [[quarkus-mockserver_quarkus.mockserver.client.port]]`link:#quarkus-mockserver_quarkus.mockserver.client.port[quarkus.mockserver.client.port]`
+
+[.description]
+--
+Port of the MockServer for the MockServerClient
+--|string 
+|required icon:exclamation-circle[title=Configuration property is required]
+
 |===

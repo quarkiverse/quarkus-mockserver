@@ -24,12 +24,12 @@ To use this extension for local development, add the dependency to the target pr
 ### Configuration
 
 ```properties
-# enable or disable mockserver devservice
+# enable or disable mockserver devservices
 quarkus.mockserver.devservices.enabled=true|false
-# mockserver configuration properties file 
-quarkus.mockserver.devservices.config-file=
-# mockserver configuration directory for example: src/test/resources/mockserer is mounted on the container as "/config" directory.
-quarkus.mockserver.devservices.config-dir=
+# mockserver configuration properties file, container file '/config/mockserver.properties'
+quarkus.mockserver.devservices.config-file=src/test/resources/mockserver.properties
+# mockserver configuration directory for the expectation initializers, container directory '/<last_name_from_path>'.
+quarkus.mockserver.devservices.config-dir=src/test/resources/mockserver
 # enable or disable logs of the mockserver container
 quarkus.mockserver.devservices.log=true|false
 # mockserver docker image name
@@ -38,26 +38,26 @@ quarkus.mockserver.devservices.imageName=jamesdbloom/mockserver:mockserver-5.13.
 quarkus.mockserver.devservices.port=
 # container shared mode
 quarkus.mockserver.devservices.shared=true|false
-# mockserver devservice service name
+# mockserver devservices service name
 quarkus.mockserver.devservices.serviceName=mockserver
 ```
 Runtime configuration values will be set up during start of the mockserver container. These values could be used to configure rest-client in your application.
 ```properties
 # mockserver endpoint is random port http://localhost:44556 or http://mockserver:1080 for shared containers. 
-quarkus-test.mockserver.endpoint=
+quarkus.mockserver.endpoint=
 # mockserver port is random testcontainers port or 1080 for shared containers
-quarkus-test.mockserver.port=
+quarkus.mockserver.port=
 # mockserver port is localhost or mockserver for shared containers
-quarkus-test.mockserver.host=
+quarkus.mockserver.host=
 # mockserver host for the test client, docker host
-quarkus-test.mockserver.client.host=
+quarkus.mockserver.client.host=
 # mockserver port for the test client, testcontainers random port
-quarkus-test.mockserver.client.port=
+quarkus.mockserver.client.port=
 ```
 Rest client configuration example:
 ```properties
-%dev.activity-client/mp-rest/url=${quarkus-test.mockserver.endpoint}
-%test.activity-client/mp-rest/url=${quarkus-test.mockserver.endpoint}
+%dev.activity-client/mp-rest/url=${quarkus.mockserver.endpoint}
+%test.activity-client/mp-rest/url=${quarkus.mockserver.endpoint}
 ```
 
 MockServer documentation:
@@ -71,6 +71,7 @@ To use the extension for test, add the dependency to the target project:
 <dependency>
     <groupId>io.quarkiverse.mockserver</groupId>
     <artifactId>quarkus-mockserver-test</artifactId>
+    <scope>test</scope>
 </dependency>
 ```
 

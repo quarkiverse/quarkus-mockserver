@@ -2,6 +2,8 @@ package io.quarkiverse.mockserver.devservices;
 
 import static io.quarkus.runtime.LaunchMode.DEVELOPMENT;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.Duration;
 import java.util.List;
 import java.util.Map;
@@ -94,8 +96,8 @@ public class DevServicesMockServerProcessor {
                     !devServicesSharedNetworkBuildItem.isEmpty(), devServicesConfig.timeout);
             if (devServices != null) {
                 log.infof("The MockServer server is ready to accept connections on %s:%s",
-                        devServices.getConfig().get(MockServerConfig.TEST_HOST),
-                        devServices.getConfig().get(MockServerConfig.TEST_PORT));
+                        devServices.getConfig().get(MockServerConfig.CLIENT_HOST),
+                        devServices.getConfig().get(MockServerConfig.CLIENT_PORT));
                 compressor.close();
             } else {
                 compressor.closeAndDumpCaptured();
@@ -154,12 +156,25 @@ public class DevServicesMockServerProcessor {
 
             // Add mockserver configuration properties file
             if (devServicesConfig.configFile.isPresent()) {
-                container.withFileSystemBind(devServicesConfig.configFile.get(), "mockserver.properties", BindMode.READ_ONLY);
-                container.withEnv(ENV_MOCKSERVER_PROPERTY_FILE, "mockserver.properties");
+                String configFile = devServicesConfig.configFile.get();
+                if (Files.isRegularFile(Path.of(configFile))) {
+                    container.withFileSystemBind(configFile, "/config/mockserver.properties", BindMode.READ_ONLY);
+                    log.infof(
+                            "MockServer configuration local file '%s' mount to '/config/mockserver.properties' container file.",
+                            configFile);
+                }
             }
 
             // mount directory with mocks
-            devServicesConfig.configDir.ifPresent(s -> container.withFileSystemBind(s, "/config", BindMode.READ_ONLY));
+            if (devServicesConfig.configDir.isPresent()) {
+                String configDir = devServicesConfig.configDir.get();
+                Path path = Path.of(configDir);
+                if (Files.isDirectory(path)) {
+                    container.withFileSystemBind(configDir, "/" + path.getFileName(), BindMode.READ_ONLY);
+                    log.infof("MockServer configuration local directory '%s' mount to '/%s' container directory.", configDir,
+                            path.getFileName());
+                }
+            }
 
             container.start();
             return new DevServicesResultBuildItem.RunningDevService(FEATURE_NAME, container.getContainerId(),
@@ -167,8 +182,8 @@ public class DevServicesMockServerProcessor {
                     Map.of(MockServerConfig.HOST, container.getDevHost(),
                             MockServerConfig.PORT, "" + container.getDevPort(),
                             MockServerConfig.ENDPOINT, container.getDevEndpoint(),
-                            MockServerConfig.TEST_HOST, container.getHost(),
-                            MockServerConfig.TEST_PORT, "" + container.getServerPort()));
+                            MockServerConfig.CLIENT_HOST, container.getHost(),
+                            MockServerConfig.CLIENT_PORT, "" + container.getServerPort()));
         };
 
         return containerLocator.locateContainer(devServicesConfig.serviceName, devServicesConfig.shared, launchMode)
@@ -178,8 +193,8 @@ public class DevServicesMockServerProcessor {
                             null,
                             Map.of(MockServerConfig.HOST, containerAddress.getHost(),
                                     MockServerConfig.PORT, "" + containerAddress.getPort(),
-                                    MockServerConfig.TEST_HOST, containerAddress.getHost(),
-                                    MockServerConfig.TEST_PORT, "" + containerAddress.getPort(),
+                                    MockServerConfig.CLIENT_HOST, containerAddress.getHost(),
+                                    MockServerConfig.CLIENT_PORT, "" + containerAddress.getPort(),
                                     MockServerConfig.ENDPOINT, String.format("http://%s:%d",
                                             containerAddress.getHost(), containerAddress.getPort())));
                 })

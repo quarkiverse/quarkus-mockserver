@@ -30,8 +30,8 @@ public class MockServerTestResource implements QuarkusTestResourceLifecycleManag
 
     @Override
     public void setIntegrationTestContext(DevServicesContext context) {
-        String host = context.devServicesProperties().get(MockServerConfig.TEST_HOST);
-        String port = context.devServicesProperties().get(MockServerConfig.TEST_PORT);
+        String host = context.devServicesProperties().get(MockServerConfig.CLIENT_HOST);
+        String port = context.devServicesProperties().get(MockServerConfig.CLIENT_PORT);
         CLIENT = new MockServerClient(host, Integer.parseInt(port));
     }
 }

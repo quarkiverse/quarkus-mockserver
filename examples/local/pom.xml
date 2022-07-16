@@ -7,7 +7,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>quarkus-mockserver-examples-opentracing</artifactId>
+    <artifactId>quarkus-mockserver-examples-local</artifactId>
     <name>Quarkus MockServer - Examples - Local</name>
     <description>Quarkus MockServer examples local</description>
 

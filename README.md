@@ -16,6 +16,7 @@ To use this extension for local development, add the dependency to the target pr
 <dependency>
     <groupId>io.quarkiverse.mockserver</groupId>
     <artifactId>quarkus-mockserver</artifactId>
+    <scope>provided</scope>
 </dependency>
 ```
 

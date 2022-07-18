@@ -16,7 +16,6 @@
     <module>runtime</module>
     <module>docs</module>
     <module>test</module>
-    <module>examples</module>
   </modules>
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
@@ -81,6 +80,7 @@
       </activation>
       <modules>
         <module>integration-tests</module>
+        <module>examples</module>
       </modules>
     </profile>
   </profiles>

@@ -56,7 +56,7 @@ public class DevServicesMockServerProcessor {
     private static volatile boolean first = true;
 
     @BuildStep(onlyIfNot = IsNormal.class, onlyIf = { GlobalDevServicesConfig.Enabled.class })
-    public DevServicesResultBuildItem startRedisContainers(LaunchModeBuildItem launchMode,
+    public DevServicesResultBuildItem startMockServerContainers(LaunchModeBuildItem launchMode,
             DockerStatusBuildItem dockerStatusBuildItem,
             List<DevServicesSharedNetworkBuildItem> devServicesSharedNetworkBuildItem,
             MockServerBuildTimeConfig config,
@@ -143,7 +143,7 @@ public class DevServicesMockServerProcessor {
 
         DockerImageName dockerImageName = DockerImageName.parse(devServicesConfig.imageName.orElse(DEFAULT_IMAGE));
 
-        Supplier<DevServicesResultBuildItem.RunningDevService> defaultRedisServerSupplier = () -> {
+        Supplier<DevServicesResultBuildItem.RunningDevService> defaultMockServerSupplier = () -> {
             QuarkusPortMockServerContainer container = new QuarkusPortMockServerContainer(dockerImageName,
                     devServicesConfig.port,
                     launchMode == DEVELOPMENT ? devServicesConfig.serviceName : null, useSharedNetwork);
@@ -198,7 +198,7 @@ public class DevServicesMockServerProcessor {
                                     MockServerConfig.ENDPOINT, String.format("http://%s:%d",
                                             containerAddress.getHost(), containerAddress.getPort())));
                 })
-                .orElseGet(defaultRedisServerSupplier);
+                .orElseGet(defaultMockServerSupplier);
     }
 
     private static class QuarkusPortMockServerContainer extends MockServerContainer {

@@ -41,12 +41,12 @@ public class DevServicesConfig {
     public OptionalInt port;
 
     /**
-     * Indicates if the Redis server managed by Quarkus Dev Services is shared.
+     * Indicates if the MockServer server managed by Quarkus Dev Services is shared.
      * When shared, Quarkus looks for running containers using label-based service discovery.
      * If a matching container is found, it is used, and so a second one is not started.
-     * Otherwise, Dev Services for Redis starts a new container.
+     * Otherwise, Dev Services for MockServer starts a new container.
      * <p>
-     * The discovery uses the {@code quarkus-dev-service-redis} label.
+     * The discovery uses the {@code quarkus-dev-service-mockserver} label.
      * The value is configured using the {@code service-name} property.
      * <p>
      * Container sharing is only used in dev mode.

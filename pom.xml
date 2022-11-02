@@ -23,7 +23,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <quarkus.version>2.13.3.Final</quarkus.version>
-    <testcontainers.mockserver.version>1.17.3</testcontainers.mockserver.version>
+    <testcontainers.mockserver.version>1.17.5</testcontainers.mockserver.version>
     <mockserver-client.version>5.13.2</mockserver-client.version>
     <maven.compiler.parameters>true</maven.compiler.parameters>
     <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>

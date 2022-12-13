@@ -78,11 +78,11 @@ To use the extension for test, add the dependency to the target project:
 
 Test example
 ```java
-import io.quarkiverse.mockserver.test.MockServerResource;
+import io.quarkiverse.mockserver.test.MockServerTestResource;
 import io.quarkus.test.common.QuarkusTestResource;
 
 @QuarkusTest
-@QuarkusTestResource(MockServerResource.class)
+@QuarkusTestResource(MockServerTestResource.class)
 public class BaseTest extends AbstractTest {
 
 }

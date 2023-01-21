@@ -41,6 +41,8 @@ quarkus.mockserver.devservices.port=
 quarkus.mockserver.devservices.shared=true|false
 # mockserver devservices service name
 quarkus.mockserver.devservices.serviceName=mockserver
+# enable reusable mockserver test-container (https://www.testcontainers.org/features/reuse/)
+quarkus.mockserver.devservices.reuse=false
 ```
 Runtime configuration values will be set up during start of the mockserver container. These values could be used to configure rest-client in your application.
 ```properties

@@ -74,6 +74,19 @@ public class DevServicesConfig {
     public Optional<String> configFile;
 
     /**
+     * Helper to define the stop strategy for containers created by DevServices.
+     * In particular, we don't want to actually stop the containers when they
+     * have been flagged for reuse, and when the Testcontainers configuration
+     * has been explicitly set to allow container reuse.
+     * To enable reuse, ass {@literal testcontainers.reuse.enable=true} in your
+     * {@literal .testcontainers.properties} file, to be stored in your home.
+     *
+     * @see <a href="https://www.testcontainers.org/features/configuration/">Testcontainers Configuration</a>.
+     */
+    @ConfigItem(name = "reuse", defaultValue = "false")
+    public boolean reuse;
+
+    /**
      * The configuration directory to mount in the container /config.
      */
     @ConfigItem(name = "config-dir")

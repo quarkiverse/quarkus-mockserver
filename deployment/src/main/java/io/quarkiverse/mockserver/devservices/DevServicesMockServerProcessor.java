@@ -175,9 +175,16 @@ public class DevServicesMockServerProcessor {
                 }
             }
 
+            // enable test-container reuse
+            if (devServicesConfig.reuse) {
+                container.withReuse(true);
+            }
+
+            // start test-container
             container.start();
+
             return new DevServicesResultBuildItem.RunningDevService(FEATURE_NAME, container.getContainerId(),
-                    container::close,
+                    new ContainerShutdownCloseable(container, FEATURE_NAME),
                     Map.of(MockServerConfig.HOST, container.getDevHost(),
                             MockServerConfig.PORT, "" + container.getDevPort(),
                             MockServerConfig.ENDPOINT, container.getDevEndpoint(),

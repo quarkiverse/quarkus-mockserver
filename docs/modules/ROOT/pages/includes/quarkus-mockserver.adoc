@@ -127,6 +127,22 @@ endif::add-copy-button-to-env-var[]
 |
 
 
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus.mockserver.devservices.reuse]]`link:#quarkus-mockserver_quarkus.mockserver.devservices.reuse[quarkus.mockserver.devservices.reuse]`
+
+[.description]
+--
+Helper to define the stop strategy for containers created by DevServices. In particular, we don't want to actually stop the containers when they have been flagged for reuse, and when the Testcontainers configuration has been explicitly set to allow container reuse. To enable reuse, ass `testcontainers.reuse.enable=true` in your `.testcontainers.properties` file, to be stored in your home.
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MOCKSERVER_DEVSERVICES_REUSE+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_MOCKSERVER_DEVSERVICES_REUSE+++`
+endif::add-copy-button-to-env-var[]
+--|boolean 
+|`false`
+
+
 a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus.mockserver.devservices.config-dir]]`link:#quarkus-mockserver_quarkus.mockserver.devservices.config-dir[quarkus.mockserver.devservices.config-dir]`
 
 [.description]

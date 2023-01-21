@@ -34,13 +34,13 @@ quarkus.mockserver.devservices.config-dir=src/test/resources/mockserver
 # enable or disable logs of the mockserver container
 quarkus.mockserver.devservices.log=true|false
 # mockserver docker image name
-quarkus.mockserver.devservices.imageName=jamesdbloom/mockserver:mockserver-5.13.0
+quarkus.mockserver.devservices.image-name="mockserver/mockserver:5.15.0"
 # mockserver container fix port
 quarkus.mockserver.devservices.port=
 # container shared mode
 quarkus.mockserver.devservices.shared=true|false
 # mockserver devservices service name
-quarkus.mockserver.devservices.serviceName=mockserver
+quarkus.mockserver.devservices.service-name=mockserver
 # enable reusable mockserver test-container (https://www.testcontainers.org/features/reuse/)
 quarkus.mockserver.devservices.reuse=false
 ```

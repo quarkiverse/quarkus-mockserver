@@ -17,19 +17,19 @@ public class DevServicesConfig {
      * When DevServices is enabled Quarkus will attempt to automatically configure and start
      * a database when running in Dev or Test mode and when Docker is running.
      */
-    @ConfigItem(defaultValue = "true")
+    @ConfigItem(name = "enabled", defaultValue = "true")
     public boolean enabled;
 
     /**
      * Enabled or disable log of the mock-server
      */
-    @ConfigItem(defaultValue = "false")
+    @ConfigItem(name = "log", defaultValue = "false")
     public boolean log;
 
     /**
      * The container image name to use, for container based DevServices providers.
      */
-    @ConfigItem
+    @ConfigItem(name = "image-name")
     public Optional<String> imageName;
 
     /**
@@ -37,7 +37,7 @@ public class DevServicesConfig {
      * <p>
      * If not defined, the port will be chosen randomly.
      */
-    @ConfigItem
+    @ConfigItem(name = "port")
     public OptionalInt port;
 
     /**
@@ -51,7 +51,7 @@ public class DevServicesConfig {
      * <p>
      * Container sharing is only used in dev mode.
      */
-    @ConfigItem(defaultValue = "true")
+    @ConfigItem(name = "shared", defaultValue = "true")
     public boolean shared;
 
     /**
@@ -64,7 +64,7 @@ public class DevServicesConfig {
      * <p>
      * This property is used when you need multiple shared MockServer servers.
      */
-    @ConfigItem(defaultValue = "mock-server")
+    @ConfigItem(name = "service-name", defaultValue = "mock-server")
     public String serviceName;
 
     /**

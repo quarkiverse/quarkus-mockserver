@@ -44,12 +44,11 @@ public class DevServicesMockServerProcessor {
     private static final String DEV_SERVICE_LABEL = "quarkus-dev-service-mockserver";
     private static final int MOCKSERVER_EXPOSED_PORT = MockServerContainer.PORT;
 
-    private static final String ENV_MOCKSERVER_PROPERTY_FILE = "MOCKSERVER_PROPERTY_FILE";
     private static final ContainerLocator containerLocator = new ContainerLocator(DEV_SERVICE_LABEL, MOCKSERVER_EXPOSED_PORT);
 
     private static final String FEATURE_NAME = "mock-server";
 
-    private static final String DEFAULT_IMAGE = "mockserver/mockserver:5.14.0";
+    private static final String DEFAULT_IMAGE = "mockserver/mockserver:5.15.0";
 
     private static volatile DevServicesResultBuildItem.RunningDevService devServices;
     private static volatile MockServerBuildTimeConfig.DevServiceConfiguration capturedDevServicesConfiguration;

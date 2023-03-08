@@ -93,18 +93,19 @@ public class DevServicesMockServerProcessor {
                     currentDevServicesConfiguration.devservices,
                     launchMode.getLaunchMode(),
                     !devServicesSharedNetworkBuildItem.isEmpty(), devServicesConfig.timeout);
-            if (devServices != null) {
-                log.infof("The MockServer server is ready to accept connections on %s:%s",
-                        devServices.getConfig().get(MockServerConfig.CLIENT_HOST),
-                        devServices.getConfig().get(MockServerConfig.CLIENT_PORT));
-                compressor.close();
-            } else {
+            if (devServices == null) {
                 compressor.closeAndDumpCaptured();
+            } else {
+                compressor.close();
             }
 
         } catch (Throwable t) {
             compressor.closeAndDumpCaptured();
             throw new RuntimeException(t);
+        }
+
+        if (devServices == null) {
+            return null;
         }
 
         if (first) {
@@ -122,6 +123,14 @@ public class DevServicesMockServerProcessor {
                 capturedDevServicesConfiguration = null;
             };
             closeBuildItem.addCloseTask(closeTask, true);
+        }
+        if (devServices.isOwner()) {
+            log.infof("The mock-server server is ready to accept connections on http://%s:%s",
+                    devServices.getConfig().get(MockServerConfig.CLIENT_HOST),
+                    devServices.getConfig().get(MockServerConfig.CLIENT_PORT));
+            log.infof("The mock-server dashboard http://%s:%s/mockserver/dashboard",
+                    devServices.getConfig().get(MockServerConfig.CLIENT_HOST),
+                    devServices.getConfig().get(MockServerConfig.CLIENT_PORT));
         }
         return devServices.toBuildItem();
     }

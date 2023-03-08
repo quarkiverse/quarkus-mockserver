@@ -20,30 +20,30 @@ public class MockServerConfig {
     /**
      * Host of the MockServer
      */
-    @ConfigItem(name = "host")
+    @ConfigItem(name = "host", defaultValue = "localhost")
     String host;
 
     /**
      * Port of the MockServer
      */
-    @ConfigItem(name = "port")
+    @ConfigItem(name = "port", defaultValue = "1080")
     String port;
 
     /**
      * Endpoint of the MockServer
      */
-    @ConfigItem(name = "endpoint")
+    @ConfigItem(name = "endpoint", defaultValue = "http://localhost:8080")
     String endpoint;
 
     /**
      * Host of the MockServer for the MockServerClient
      */
-    @ConfigItem(name = "client.host")
+    @ConfigItem(name = "client.host", defaultValue = "localhost")
     String clientHost;
 
     /**
      * Port of the MockServer for the MockServerClient
      */
-    @ConfigItem(name = "client.port")
+    @ConfigItem(name = "client.port", defaultValue = "1080")
     String clientPort;
 }

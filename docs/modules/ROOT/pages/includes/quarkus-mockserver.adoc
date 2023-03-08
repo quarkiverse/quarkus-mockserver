@@ -172,7 +172,7 @@ ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MOCKSERVER_HOST+++`
 endif::add-copy-button-to-env-var[]
 --|string 
-|required icon:exclamation-circle[title=Configuration property is required]
+|`localhost`
 
 
 a| [[quarkus-mockserver_quarkus.mockserver.port]]`link:#quarkus-mockserver_quarkus.mockserver.port[quarkus.mockserver.port]`
@@ -188,7 +188,7 @@ ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MOCKSERVER_PORT+++`
 endif::add-copy-button-to-env-var[]
 --|string 
-|required icon:exclamation-circle[title=Configuration property is required]
+|`1080`
 
 
 a| [[quarkus-mockserver_quarkus.mockserver.endpoint]]`link:#quarkus-mockserver_quarkus.mockserver.endpoint[quarkus.mockserver.endpoint]`
@@ -204,7 +204,7 @@ ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MOCKSERVER_ENDPOINT+++`
 endif::add-copy-button-to-env-var[]
 --|string 
-|required icon:exclamation-circle[title=Configuration property is required]
+|`http://localhost:8080`
 
 
 a| [[quarkus-mockserver_quarkus.mockserver.client.host]]`link:#quarkus-mockserver_quarkus.mockserver.client.host[quarkus.mockserver.client.host]`
@@ -220,7 +220,7 @@ ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MOCKSERVER_CLIENT_HOST+++`
 endif::add-copy-button-to-env-var[]
 --|string 
-|required icon:exclamation-circle[title=Configuration property is required]
+|`localhost`
 
 
 a| [[quarkus-mockserver_quarkus.mockserver.client.port]]`link:#quarkus-mockserver_quarkus.mockserver.client.port[quarkus.mockserver.client.port]`
@@ -236,6 +236,6 @@ ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MOCKSERVER_CLIENT_PORT+++`
 endif::add-copy-button-to-env-var[]
 --|string 
-|required icon:exclamation-circle[title=Configuration property is required]
+|`1080`
 
 |===

@@ -9,6 +9,17 @@
 
 Quarkus [MockServer](https://mock-server.com/) extension for tests and local development.
 
+## Compatibility
+
+Quarkus MockServer provides two different version streams, one compatible with Quarkus 2.x and the other compatible with Quarkus 3.x.
+
+| Quarkus | Quarkus MockServer | Documentation                                                                                     |
+|---------|--------------------|---------------------------------------------------------------------------------------------------|
+| 2.x     | 0.x                | [Documentation](https://quarkiverse.github.io/quarkiverse-docs/quarkus-mockserver/0.x/index.html) |
+| 3.x     | 1.x                | [Documentation](https://quarkiverse.github.io/quarkiverse-docs/quarkus-mockserver/dev/index.html)    |
+
+Use the latest version of the corresponding stream, [the list of versions is available on Maven Central](https://central.sonatype.com/artifact/io.quarkiverse.mockserver/quarkus-mockserver-parent).
+
 ## Getting started
 
 Read the full [Quarkus MockServer documentation](https://quarkiverse.github.io/quarkiverse-docs/quarkus-mockserver/dev/).

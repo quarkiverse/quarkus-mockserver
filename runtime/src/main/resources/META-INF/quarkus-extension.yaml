@@ -8,3 +8,5 @@ metadata:
   categories:
     - "testing"
   status: "preview"
+  config:
+    - "quarkus.mockserver."

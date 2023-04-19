@@ -2,7 +2,9 @@
 
 include::./includes/attributes.adoc[]
 
-TIP: Quarkus test MockServer extension.
+Quarkus [MockServer](https://mock-server.com/) extension for tests and local development.
+
+TIP: Quarkus test and dev MockServer extension.
 
 == Installation
 
@@ -16,8 +18,91 @@ For instance, with Maven, add the following dependency to your POM file:
     <groupId>io.quarkiverse.mockserver</groupId>
     <artifactId>quarkus-mockserver-test</artifactId>
     <version>{project-version}</version>
+    <scope>provided</scope>
 </dependency>
 ----
+
+== Usage
+
+This extension provides a `quarkus.mockserver.endpoint` variable that points to the launched Docker container.
+
+Example configuration for local development and testing:
+[source,properties]
+----
+%dev.quarkus.mockserver.devservices.config-file=src/test/resources/mockserver.properties
+%dev.quarkus.mockserver.devservices.config-dir=src/test/resources/mockserver
+%dev.quarkus.mockserver.devservices.log=true
+
+%dev.activity-client/mp-rest/url=${quarkus.mockserver.endpoint}
+%test.activity-client/mp-rest/url=${quarkus.mockserver.endpoint}
+----
+
+{quarkus-mockserver-url}/tree/main/examples[Example projects]
+
+=== MockServer documentation
+
+* https://mock-server.com/mock_server/configuration_properties.html[Configuration properties file]
+* https://mock-server.com/mock_server/initializing_expectations.html#expectation_initializer_json[Expectation Initializer JSON]
+
+== Testing
+
+To use the extension for test, add the dependency to the target project:
+[source,xml,subs=attributes+]
+----
+<dependency>
+    <groupId>io.quarkiverse.mockserver</groupId>
+    <artifactId>quarkus-mockserver-test</artifactId>
+    <version>{project-version}</version>
+    <scope>test</scope>
+</dependency>
+----
+
+Test class example
+[source,java]
+----
+import io.quarkiverse.mockserver.test.MockServerTestResource;
+import io.quarkus.test.common.QuarkusTestResource;
+
+@QuarkusTest
+@QuarkusTestResource(MockServerTestResource.class)
+public class BaseTest {
+
+    @InjectMockServerClient
+    MockServerClient mockServerClient;
+
+        @Test
+    public void test200() {
+        Map<String, Object> data = new HashMap<>();
+        data.put("key-A", "value-A");
+        data.put("key-B", 1);
+
+        // create mock rest endpoint
+        mockServerClient
+                .when(request()
+                .withPath("/activity/data/1")
+                .withMethod("POST"))
+                .respond(
+                   httpRequest -> response()
+                                  .withStatusCode(200)
+                                  .withHeader("Content-Type", "application/json")
+                                  .withBody(JsonBody.json(data))
+                );
+        }
+
+        // ... test
+}
+----
+We can reuse the test for the integration test.
+[source,java]
+----
+import io.quarkus.test.junit.QuarkusIntegrationTest;
+
+@QuarkusIntegrationTest
+public class BaseIT extends BaseTest {
+
+}
+----
+For more information check examples in the `integration-tests` directory in this repo.
 
 [[extension-configuration-reference]]
 == Extension Configuration Reference

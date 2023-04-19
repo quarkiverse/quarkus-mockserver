@@ -9,6 +9,10 @@
 
 Quarkus [MockServer](https://mock-server.com/) extension for tests and local development.
 
+## Getting started
+
+Read the full [Quarkus MockServer documentation](https://quarkiverse.github.io/quarkiverse-docs/quarkus-mockserver/dev/).
+
 ## Usage
 
 To use this extension for local development, add the dependency to the target project:

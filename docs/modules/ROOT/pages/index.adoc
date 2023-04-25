@@ -2,7 +2,7 @@
 
 include::./includes/attributes.adoc[]
 
-Quarkus [MockServer](https://mock-server.com/) extension for tests and local development.
+Quarkus https://mock-server.com/[MockServer] extension for tests and local development.
 
 TIP: Quarkus test and dev MockServer extension.
 

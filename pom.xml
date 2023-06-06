@@ -18,7 +18,7 @@
     <module>test</module>
   </modules>
   <scm>
-    <connection>:git:git@github.com:quarkiverse/quarkus-mockserver.git</connection>
+    <connection>scm:git:git@github.com:quarkiverse/quarkus-mockserver.git</connection>
     <developerConnection>scm:git:git@github.com:quarkiverse/quarkus-mockserver.git</developerConnection>
     <url>https://github.com/quarkiverse/quarkus-mockserver</url>
   </scm>

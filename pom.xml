@@ -17,6 +17,11 @@
     <module>docs</module>
     <module>test</module>
   </modules>
+  <scm>
+    <connection>scm:git:git@github.com:quarkiverse/quarkus-mockserver.git</connection>
+    <developerConnection>scm:git:git@github.com:quarkiverse/quarkus-mockserver.git</developerConnection>
+    <url>https://github.com/quarkiverse/quarkus-mockserver</url>
+  </scm>
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <maven.compiler.release>11</maven.compiler.release>

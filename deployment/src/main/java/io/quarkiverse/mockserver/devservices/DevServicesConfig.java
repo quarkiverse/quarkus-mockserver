@@ -74,6 +74,13 @@ public class DevServicesConfig {
     public Optional<String> configFile;
 
     /**
+     * MockServer's configuration class-path binding. Useful for the test and CI builds.
+     * When set to {@code true}, a test-container {@code withClasspathResourceMapping} method is used.
+     */
+    @ConfigItem(name = "config-class-path", defaultValue = "false")
+    public boolean configClassPath;
+
+    /**
      * Helper to define the stop strategy for containers created by DevServices.
      * In particular, we don't want to actually stop the containers when they
      * have been flagged for reuse, and when the Testcontainers configuration

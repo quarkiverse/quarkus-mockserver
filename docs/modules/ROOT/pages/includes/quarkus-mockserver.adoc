@@ -127,6 +127,22 @@ endif::add-copy-button-to-env-var[]
 |
 
 
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus.mockserver.devservices.config-class-path]]`link:#quarkus-mockserver_quarkus.mockserver.devservices.config-class-path[quarkus.mockserver.devservices.config-class-path]`
+
+[.description]
+--
+MockServer's configuration class-path binding. Useful for the test and CI builds.
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MOCKSERVER_DEVSERVICES_CONFIG_CLASS_PATH+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_MOCKSERVER_DEVSERVICES_CONFIG_CLASS_PATH+++`
+endif::add-copy-button-to-env-var[]
+--|boolean 
+|`false`
+
+
 a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus.mockserver.devservices.reuse]]`link:#quarkus-mockserver_quarkus.mockserver.devservices.reuse[quarkus.mockserver.devservices.reuse]`
 
 [.description]

@@ -25,7 +25,7 @@ import io.restassured.path.json.JsonPath;
 
 @QuarkusTest
 @QuarkusTestResource(MockServerTestResource.class)
-public class BaseRestControllerTest {
+class BaseRestControllerTest {
 
     static {
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
@@ -36,13 +36,13 @@ public class BaseRestControllerTest {
     MockServerClient mockServerClient;
 
     @Test
-    public void test200() {
+    void test200() {
         Map<String, Object> data = new HashMap<>(Map.of(
                 "key-A", "value-A",
                 "key-B", 1));
 
         // create mock rest endpoint
-        mockServerClient.when(request().withPath("/activity/data/1").withMethod("POST"))
+        mockServerClient.when(request().withPath("/activity/data/2").withMethod("POST"))
                 .respond(httpRequest -> response().withStatusCode(200)
                         .withHeader("Content-Type", "application/json")
                         .withBody(JsonBody.json(data)));
@@ -54,7 +54,7 @@ public class BaseRestControllerTest {
         JsonPath result = given()
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(request)
-                .post("/test/1")
+                .post("/test/2")
                 .prettyPeek()
                 .then()
                 .statusCode(Response.Status.OK.getStatusCode())
@@ -64,4 +64,23 @@ public class BaseRestControllerTest {
         Assertions.assertEquals(1, result.getInt("key-B"));
     }
 
+    @Test
+    void testClassPathMockData200() {
+
+        BaseRestController.Data request = new BaseRestController.Data();
+        request.key = "r1";
+        request.value = "r1";
+
+        JsonPath result = given()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(request)
+                .post("/test/1")
+                .prettyPeek()
+                .then()
+                .statusCode(Response.Status.OK.getStatusCode())
+                .extract().body().jsonPath();
+        Assertions.assertNotNull(result);
+        Assertions.assertEquals("k1", result.getString("key"));
+        Assertions.assertEquals("v2", result.getString("value"));
+    }
 }

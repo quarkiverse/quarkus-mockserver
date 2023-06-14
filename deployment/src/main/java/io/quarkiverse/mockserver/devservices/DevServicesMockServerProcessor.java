@@ -165,11 +165,20 @@ public class DevServicesMockServerProcessor {
             // Add mockserver configuration properties file
             if (devServicesConfig.configFile.isPresent()) {
                 String configFile = devServicesConfig.configFile.get();
-                if (Files.isRegularFile(Path.of(configFile))) {
-                    container.withFileSystemBind(configFile, "/config/mockserver.properties", BindMode.READ_ONLY);
+                if (devServicesConfig.configClassPath) {
+                    container.withClasspathResourceMapping(configFile, "/config/mockserver.properties", BindMode.READ_ONLY);
                     log.infof(
-                            "MockServer configuration local file '%s' mount to '/config/mockserver.properties' container file.",
+                            "MockServer configuration class-path file '%s' mount to '/config/mockserver.properties' container file.",
                             configFile);
+                } else {
+                    if (Files.isRegularFile(Path.of(configFile))) {
+                        container.withFileSystemBind(configFile, "/config/mockserver.properties", BindMode.READ_ONLY);
+                        log.infof(
+                                "MockServer configuration local file '%s' mount to '/config/mockserver.properties' container file.",
+                                configFile);
+                    } else {
+                        log.warnf("MockServer configuration local file '%s' is regular file.", configFile);
+                    }
                 }
             }
 
@@ -177,10 +186,20 @@ public class DevServicesMockServerProcessor {
             if (devServicesConfig.configDir.isPresent()) {
                 String configDir = devServicesConfig.configDir.get();
                 Path path = Path.of(configDir);
-                if (Files.isDirectory(path)) {
-                    container.withFileSystemBind(configDir, "/" + path.getFileName(), BindMode.READ_ONLY);
-                    log.infof("MockServer configuration local directory '%s' mount to '/%s' container directory.", configDir,
+                if (devServicesConfig.configClassPath) {
+                    container.withClasspathResourceMapping(configDir, "/" + path.getFileName(), BindMode.READ_ONLY);
+                    log.infof("MockServer configuration class-path directory '%s' mount to '/%s' container directory.",
+                            configDir,
                             path.getFileName());
+                } else {
+                    if (Files.isDirectory(path)) {
+                        container.withFileSystemBind(configDir, "/" + path.getFileName(), BindMode.READ_ONLY);
+                        log.infof("MockServer configuration local directory '%s' mount to '/%s' container directory.",
+                                configDir,
+                                path.getFileName());
+                    } else {
+                        log.warnf("MockServer configuration local directory '%s' is not directory.", configDir);
+                    }
                 }
             }
 

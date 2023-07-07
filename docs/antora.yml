@@ -1,5 +1,5 @@
 name: quarkus-mockserver
-title: Quarkus Mockserver
+title: Mockserver
 version: dev
 nav:
   - modules/ROOT/nav.adoc

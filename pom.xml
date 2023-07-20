@@ -27,7 +27,7 @@
     <maven.compiler.release>11</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <quarkus.version>3.1.2.Final</quarkus.version>
+    <quarkus.version>3.2.1.Final</quarkus.version>
     <testcontainers.mockserver.version>1.18.3</testcontainers.mockserver.version>
     <mockserver-client.version>5.15.0</mockserver-client.version>
     <maven.compiler.parameters>true</maven.compiler.parameters>

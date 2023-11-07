@@ -32,7 +32,7 @@
     <testcontainers.mockserver.version>1.19.1</testcontainers.mockserver.version>
     <mockserver-client.version>5.15.0</mockserver-client.version>
     <maven.compiler.parameters>true</maven.compiler.parameters>
-    <surefire-plugin.version>3.2.1</surefire-plugin.version>
+    <surefire-plugin.version>3.2.2</surefire-plugin.version>
   </properties>
   <dependencyManagement>
     <dependencies>

@@ -149,7 +149,8 @@ public class DevServicesMockServerProcessor {
             return null;
         }
 
-        DockerImageName dockerImageName = DockerImageName.parse(devServicesConfig.imageName.orElse(DEFAULT_IMAGE));
+        DockerImageName dockerImageName = DockerImageName.parse(devServicesConfig.imageName.orElse(DEFAULT_IMAGE))
+                .asCompatibleSubstituteFor("mockserver/mockserver");
 
         Supplier<DevServicesResultBuildItem.RunningDevService> defaultMockServerSupplier = () -> {
             QuarkusPortMockServerContainer container = new QuarkusPortMockServerContainer(dockerImageName,

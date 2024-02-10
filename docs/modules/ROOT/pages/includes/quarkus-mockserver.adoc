@@ -10,7 +10,7 @@ h|[[quarkus-mockserver_configuration]]link:#quarkus-mockserver_configuration[Con
 h|Type
 h|Default
 
-a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus.mockserver.devservices.enabled]]`link:#quarkus-mockserver_quarkus.mockserver.devservices.enabled[quarkus.mockserver.devservices.enabled]`
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-enabled]]`link:#quarkus-mockserver_quarkus-mockserver-devservices-enabled[quarkus.mockserver.devservices.enabled]`
 
 
 [.description]
@@ -29,7 +29,7 @@ endif::add-copy-button-to-env-var[]
 |`true`
 
 
-a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus.mockserver.devservices.log]]`link:#quarkus-mockserver_quarkus.mockserver.devservices.log[quarkus.mockserver.devservices.log]`
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-log]]`link:#quarkus-mockserver_quarkus-mockserver-devservices-log[quarkus.mockserver.devservices.log]`
 
 
 [.description]
@@ -46,7 +46,7 @@ endif::add-copy-button-to-env-var[]
 |`false`
 
 
-a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus.mockserver.devservices.image-name]]`link:#quarkus-mockserver_quarkus.mockserver.devservices.image-name[quarkus.mockserver.devservices.image-name]`
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-image-name]]`link:#quarkus-mockserver_quarkus-mockserver-devservices-image-name[quarkus.mockserver.devservices.image-name]`
 
 
 [.description]
@@ -63,7 +63,7 @@ endif::add-copy-button-to-env-var[]
 |
 
 
-a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus.mockserver.devservices.port]]`link:#quarkus-mockserver_quarkus.mockserver.devservices.port[quarkus.mockserver.devservices.port]`
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-port]]`link:#quarkus-mockserver_quarkus-mockserver-devservices-port[quarkus.mockserver.devservices.port]`
 
 
 [.description]
@@ -82,7 +82,7 @@ endif::add-copy-button-to-env-var[]
 |
 
 
-a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus.mockserver.devservices.shared]]`link:#quarkus-mockserver_quarkus.mockserver.devservices.shared[quarkus.mockserver.devservices.shared]`
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-shared]]`link:#quarkus-mockserver_quarkus-mockserver-devservices-shared[quarkus.mockserver.devservices.shared]`
 
 
 [.description]
@@ -103,7 +103,7 @@ endif::add-copy-button-to-env-var[]
 |`true`
 
 
-a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus.mockserver.devservices.service-name]]`link:#quarkus-mockserver_quarkus.mockserver.devservices.service-name[quarkus.mockserver.devservices.service-name]`
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-service-name]]`link:#quarkus-mockserver_quarkus-mockserver-devservices-service-name[quarkus.mockserver.devservices.service-name]`
 
 
 [.description]
@@ -122,7 +122,7 @@ endif::add-copy-button-to-env-var[]
 |`mock-server`
 
 
-a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus.mockserver.devservices.config-file]]`link:#quarkus-mockserver_quarkus.mockserver.devservices.config-file[quarkus.mockserver.devservices.config-file]`
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-config-file]]`link:#quarkus-mockserver_quarkus-mockserver-devservices-config-file[quarkus.mockserver.devservices.config-file]`
 
 
 [.description]
@@ -139,7 +139,7 @@ endif::add-copy-button-to-env-var[]
 |
 
 
-a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus.mockserver.devservices.config-class-path]]`link:#quarkus-mockserver_quarkus.mockserver.devservices.config-class-path[quarkus.mockserver.devservices.config-class-path]`
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-config-class-path]]`link:#quarkus-mockserver_quarkus-mockserver-devservices-config-class-path[quarkus.mockserver.devservices.config-class-path]`
 
 
 [.description]
@@ -156,7 +156,7 @@ endif::add-copy-button-to-env-var[]
 |`false`
 
 
-a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus.mockserver.devservices.reuse]]`link:#quarkus-mockserver_quarkus.mockserver.devservices.reuse[quarkus.mockserver.devservices.reuse]`
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-reuse]]`link:#quarkus-mockserver_quarkus-mockserver-devservices-reuse[quarkus.mockserver.devservices.reuse]`
 
 
 [.description]
@@ -173,7 +173,7 @@ endif::add-copy-button-to-env-var[]
 |`false`
 
 
-a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus.mockserver.devservices.config-dir]]`link:#quarkus-mockserver_quarkus.mockserver.devservices.config-dir[quarkus.mockserver.devservices.config-dir]`
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-config-dir]]`link:#quarkus-mockserver_quarkus-mockserver-devservices-config-dir[quarkus.mockserver.devservices.config-dir]`
 
 
 [.description]
@@ -190,7 +190,7 @@ endif::add-copy-button-to-env-var[]
 |
 
 
-a| [[quarkus-mockserver_quarkus.mockserver.host]]`link:#quarkus-mockserver_quarkus.mockserver.host[quarkus.mockserver.host]`
+a| [[quarkus-mockserver_quarkus-mockserver-host]]`link:#quarkus-mockserver_quarkus-mockserver-host[quarkus.mockserver.host]`
 
 
 [.description]
@@ -207,7 +207,7 @@ endif::add-copy-button-to-env-var[]
 |`localhost`
 
 
-a| [[quarkus-mockserver_quarkus.mockserver.port]]`link:#quarkus-mockserver_quarkus.mockserver.port[quarkus.mockserver.port]`
+a| [[quarkus-mockserver_quarkus-mockserver-port]]`link:#quarkus-mockserver_quarkus-mockserver-port[quarkus.mockserver.port]`
 
 
 [.description]
@@ -224,7 +224,7 @@ endif::add-copy-button-to-env-var[]
 |`1080`
 
 
-a| [[quarkus-mockserver_quarkus.mockserver.endpoint]]`link:#quarkus-mockserver_quarkus.mockserver.endpoint[quarkus.mockserver.endpoint]`
+a| [[quarkus-mockserver_quarkus-mockserver-endpoint]]`link:#quarkus-mockserver_quarkus-mockserver-endpoint[quarkus.mockserver.endpoint]`
 
 
 [.description]
@@ -241,7 +241,7 @@ endif::add-copy-button-to-env-var[]
 |`http://localhost:8080`
 
 
-a| [[quarkus-mockserver_quarkus.mockserver.client.host]]`link:#quarkus-mockserver_quarkus.mockserver.client.host[quarkus.mockserver.client.host]`
+a| [[quarkus-mockserver_quarkus-mockserver-client-host]]`link:#quarkus-mockserver_quarkus-mockserver-client-host[quarkus.mockserver.client.host]`
 
 
 [.description]
@@ -258,7 +258,7 @@ endif::add-copy-button-to-env-var[]
 |`localhost`
 
 
-a| [[quarkus-mockserver_quarkus.mockserver.client.port]]`link:#quarkus-mockserver_quarkus.mockserver.client.port[quarkus.mockserver.client.port]`
+a| [[quarkus-mockserver_quarkus-mockserver-client-port]]`link:#quarkus-mockserver_quarkus-mockserver-client-port[quarkus.mockserver.client.port]`
 
 
 [.description]

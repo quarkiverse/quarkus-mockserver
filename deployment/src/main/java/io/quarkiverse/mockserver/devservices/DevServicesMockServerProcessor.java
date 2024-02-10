@@ -48,7 +48,12 @@ public class DevServicesMockServerProcessor {
 
     private static final String FEATURE_NAME = "mock-server";
 
-    private static final String DEFAULT_IMAGE = "mockserver/mockserver:5.15.0";
+    private static final String DEFAULT_MOCKSERVER_CONTAINER_IMAGE = "mockserver/mockserver";
+
+    private static final String DEFAULT_MOCKSERVER_VERSION = "5.15.0";
+
+    private static final DockerImageName MOCKSERVER_IMAGE_NAME = DockerImageName.parse(DEFAULT_MOCKSERVER_CONTAINER_IMAGE)
+            .withTag(DEFAULT_MOCKSERVER_VERSION);
 
     private static volatile DevServicesResultBuildItem.RunningDevService devServices;
     private static volatile MockServerBuildTimeConfig.DevServiceConfiguration capturedDevServicesConfiguration;
@@ -149,7 +154,12 @@ public class DevServicesMockServerProcessor {
             return null;
         }
 
-        DockerImageName dockerImageName = DockerImageName.parse(devServicesConfig.imageName.orElse(DEFAULT_IMAGE));
+        DockerImageName tmp = MOCKSERVER_IMAGE_NAME;
+        if (devServicesConfig.imageName.isPresent()) {
+            tmp = DockerImageName.parse(devServicesConfig.imageName.get())
+                    .asCompatibleSubstituteFor(DEFAULT_MOCKSERVER_CONTAINER_IMAGE);
+        }
+        DockerImageName dockerImageName = tmp;
 
         Supplier<DevServicesResultBuildItem.RunningDevService> defaultMockServerSupplier = () -> {
             QuarkusPortMockServerContainer container = new QuarkusPortMockServerContainer(dockerImageName,

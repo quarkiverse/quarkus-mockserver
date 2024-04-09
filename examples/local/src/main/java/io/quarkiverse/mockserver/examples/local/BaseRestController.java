@@ -31,8 +31,9 @@ public class BaseRestController {
     @POST
     @Path("2")
     public Response post2(Data data) {
-        try {
-            return Response.fromResponse(client.getData2(Map.of(data.key, data.value))).build();
+        try (Response response = client.getData2(Map.of(data.key, data.value))) {
+            String tmp = response.readEntity(String.class);
+            return Response.ok(tmp).build();
         } catch (WebApplicationException ex) {
             return Response.fromResponse(ex.getResponse()).build();
         }

@@ -8,7 +8,7 @@
   </parent>
   <groupId>io.quarkiverse.mockserver</groupId>
   <artifactId>quarkus-mockserver-parent</artifactId>
-  <version>1.11.0</version>
+  <version>999-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Quarkus Mockserver - Parent</name>
   <modules>
@@ -21,7 +21,7 @@
     <connection>scm:git:git@github.com:quarkiverse/quarkus-mockserver.git</connection>
     <developerConnection>scm:git:git@github.com:quarkiverse/quarkus-mockserver.git</developerConnection>
     <url>https://github.com/quarkiverse/quarkus-mockserver</url>
-    <tag>1.11.0</tag>
+    <tag>HEAD</tag>
   </scm>
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>

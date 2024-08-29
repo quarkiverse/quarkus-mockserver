@@ -1,17 +1,14 @@
-
 :summaryTableId: quarkus-mockserver
 [.configuration-legend]
 icon:lock[title=Fixed at build time] Configuration property fixed at build time - All other configuration properties are overridable at runtime
 [.configuration-reference.searchable, cols="80,.^10,.^10"]
 |===
 
-h|[[quarkus-mockserver_configuration]]link:#quarkus-mockserver_configuration[Configuration property]
-
+h|[.header-title]##Configuration property##
 h|Type
 h|Default
 
-a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-enabled]]`link:#quarkus-mockserver_quarkus-mockserver-devservices-enabled[quarkus.mockserver.devservices.enabled]`
-
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-enabled]] [.property-path]##`quarkus.mockserver.devservices.enabled`##
 
 [.description]
 --
@@ -19,22 +16,23 @@ If DevServices has been explicitly enabled or disabled. DevServices is generally
 
 When DevServices is enabled Quarkus will attempt to automatically configure and start a database when running in Dev or Test mode and when Docker is running.
 
+
 ifdef::add-copy-button-to-env-var[]
 Environment variable: env_var_with_copy_button:+++QUARKUS_MOCKSERVER_DEVSERVICES_ENABLED+++[]
 endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MOCKSERVER_DEVSERVICES_ENABLED+++`
 endif::add-copy-button-to-env-var[]
---|boolean 
+--
+|boolean
 |`true`
 
-
-a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-log]]`link:#quarkus-mockserver_quarkus-mockserver-devservices-log[quarkus.mockserver.devservices.log]`
-
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-log]] [.property-path]##`quarkus.mockserver.devservices.log`##
 
 [.description]
 --
 Enabled or disable log of the mock-server
+
 
 ifdef::add-copy-button-to-env-var[]
 Environment variable: env_var_with_copy_button:+++QUARKUS_MOCKSERVER_DEVSERVICES_LOG+++[]
@@ -42,16 +40,16 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MOCKSERVER_DEVSERVICES_LOG+++`
 endif::add-copy-button-to-env-var[]
---|boolean 
+--
+|boolean
 |`false`
 
-
-a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-image-name]]`link:#quarkus-mockserver_quarkus-mockserver-devservices-image-name[quarkus.mockserver.devservices.image-name]`
-
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-image-name]] [.property-path]##`quarkus.mockserver.devservices.image-name`##
 
 [.description]
 --
 The container image name to use, for container based DevServices providers.
+
 
 ifdef::add-copy-button-to-env-var[]
 Environment variable: env_var_with_copy_button:+++QUARKUS_MOCKSERVER_DEVSERVICES_IMAGE_NAME+++[]
@@ -59,12 +57,11 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MOCKSERVER_DEVSERVICES_IMAGE_NAME+++`
 endif::add-copy-button-to-env-var[]
---|string 
+--
+|string
 |
 
-
-a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-port]]`link:#quarkus-mockserver_quarkus-mockserver-devservices-port[quarkus.mockserver.devservices.port]`
-
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-port]] [.property-path]##`quarkus.mockserver.devservices.port`##
 
 [.description]
 --
@@ -72,18 +69,18 @@ Optional fixed port the dev service will listen to.
 
 If not defined, the port will be chosen randomly.
 
+
 ifdef::add-copy-button-to-env-var[]
 Environment variable: env_var_with_copy_button:+++QUARKUS_MOCKSERVER_DEVSERVICES_PORT+++[]
 endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MOCKSERVER_DEVSERVICES_PORT+++`
 endif::add-copy-button-to-env-var[]
---|int 
+--
+|int
 |
 
-
-a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-shared]]`link:#quarkus-mockserver_quarkus-mockserver-devservices-shared[quarkus.mockserver.devservices.shared]`
-
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-shared]] [.property-path]##`quarkus.mockserver.devservices.shared`##
 
 [.description]
 --
@@ -93,18 +90,18 @@ The discovery uses the `quarkus-dev-service-mockserver` label. The value is conf
 
 Container sharing is only used in dev mode.
 
+
 ifdef::add-copy-button-to-env-var[]
 Environment variable: env_var_with_copy_button:+++QUARKUS_MOCKSERVER_DEVSERVICES_SHARED+++[]
 endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MOCKSERVER_DEVSERVICES_SHARED+++`
 endif::add-copy-button-to-env-var[]
---|boolean 
+--
+|boolean
 |`true`
 
-
-a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-service-name]]`link:#quarkus-mockserver_quarkus-mockserver-devservices-service-name[quarkus.mockserver.devservices.service-name]`
-
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-service-name]] [.property-path]##`quarkus.mockserver.devservices.service-name`##
 
 [.description]
 --
@@ -112,22 +109,23 @@ The value of the `quarkus-dev-service-mockserver` label attached to the started 
 
 This property is used when you need multiple shared MockServer servers.
 
+
 ifdef::add-copy-button-to-env-var[]
 Environment variable: env_var_with_copy_button:+++QUARKUS_MOCKSERVER_DEVSERVICES_SERVICE_NAME+++[]
 endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MOCKSERVER_DEVSERVICES_SERVICE_NAME+++`
 endif::add-copy-button-to-env-var[]
---|string 
+--
+|string
 |`mock-server`
 
-
-a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-config-file]]`link:#quarkus-mockserver_quarkus-mockserver-devservices-config-file[quarkus.mockserver.devservices.config-file]`
-
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-config-file]] [.property-path]##`quarkus.mockserver.devservices.config-file`##
 
 [.description]
 --
 MockServer configuration file.
+
 
 ifdef::add-copy-button-to-env-var[]
 Environment variable: env_var_with_copy_button:+++QUARKUS_MOCKSERVER_DEVSERVICES_CONFIG_FILE+++[]
@@ -135,16 +133,16 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MOCKSERVER_DEVSERVICES_CONFIG_FILE+++`
 endif::add-copy-button-to-env-var[]
---|string 
+--
+|string
 |
 
-
-a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-config-class-path]]`link:#quarkus-mockserver_quarkus-mockserver-devservices-config-class-path[quarkus.mockserver.devservices.config-class-path]`
-
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-config-class-path]] [.property-path]##`quarkus.mockserver.devservices.config-class-path`##
 
 [.description]
 --
 MockServer's configuration class-path binding. Useful for the test and CI builds. When set to `true`, a test-container `withClasspathResourceMapping` method is used.
+
 
 ifdef::add-copy-button-to-env-var[]
 Environment variable: env_var_with_copy_button:+++QUARKUS_MOCKSERVER_DEVSERVICES_CONFIG_CLASS_PATH+++[]
@@ -152,16 +150,16 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MOCKSERVER_DEVSERVICES_CONFIG_CLASS_PATH+++`
 endif::add-copy-button-to-env-var[]
---|boolean 
+--
+|boolean
 |`false`
 
-
-a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-reuse]]`link:#quarkus-mockserver_quarkus-mockserver-devservices-reuse[quarkus.mockserver.devservices.reuse]`
-
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-reuse]] [.property-path]##`quarkus.mockserver.devservices.reuse`##
 
 [.description]
 --
 Helper to define the stop strategy for containers created by DevServices. In particular, we don't want to actually stop the containers when they have been flagged for reuse, and when the Testcontainers configuration has been explicitly set to allow container reuse. To enable reuse, ass `testcontainers.reuse.enable=true` in your `.testcontainers.properties` file, to be stored in your home.
+
 
 ifdef::add-copy-button-to-env-var[]
 Environment variable: env_var_with_copy_button:+++QUARKUS_MOCKSERVER_DEVSERVICES_REUSE+++[]
@@ -169,16 +167,16 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MOCKSERVER_DEVSERVICES_REUSE+++`
 endif::add-copy-button-to-env-var[]
---|boolean 
+--
+|boolean
 |`false`
 
-
-a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-config-dir]]`link:#quarkus-mockserver_quarkus-mockserver-devservices-config-dir[quarkus.mockserver.devservices.config-dir]`
-
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-config-dir]] [.property-path]##`quarkus.mockserver.devservices.config-dir`##
 
 [.description]
 --
 The configuration directory to mount in the container /config.
+
 
 ifdef::add-copy-button-to-env-var[]
 Environment variable: env_var_with_copy_button:+++QUARKUS_MOCKSERVER_DEVSERVICES_CONFIG_DIR+++[]
@@ -186,16 +184,16 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MOCKSERVER_DEVSERVICES_CONFIG_DIR+++`
 endif::add-copy-button-to-env-var[]
---|string 
+--
+|string
 |
 
-
-a| [[quarkus-mockserver_quarkus-mockserver-host]]`link:#quarkus-mockserver_quarkus-mockserver-host[quarkus.mockserver.host]`
-
+a| [[quarkus-mockserver_quarkus-mockserver-host]] [.property-path]##`quarkus.mockserver.host`##
 
 [.description]
 --
 Host of the MockServer
+
 
 ifdef::add-copy-button-to-env-var[]
 Environment variable: env_var_with_copy_button:+++QUARKUS_MOCKSERVER_HOST+++[]
@@ -203,16 +201,16 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MOCKSERVER_HOST+++`
 endif::add-copy-button-to-env-var[]
---|string 
+--
+|string
 |`localhost`
 
-
-a| [[quarkus-mockserver_quarkus-mockserver-port]]`link:#quarkus-mockserver_quarkus-mockserver-port[quarkus.mockserver.port]`
-
+a| [[quarkus-mockserver_quarkus-mockserver-port]] [.property-path]##`quarkus.mockserver.port`##
 
 [.description]
 --
 Port of the MockServer
+
 
 ifdef::add-copy-button-to-env-var[]
 Environment variable: env_var_with_copy_button:+++QUARKUS_MOCKSERVER_PORT+++[]
@@ -220,16 +218,16 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MOCKSERVER_PORT+++`
 endif::add-copy-button-to-env-var[]
---|string 
+--
+|string
 |`1080`
 
-
-a| [[quarkus-mockserver_quarkus-mockserver-endpoint]]`link:#quarkus-mockserver_quarkus-mockserver-endpoint[quarkus.mockserver.endpoint]`
-
+a| [[quarkus-mockserver_quarkus-mockserver-endpoint]] [.property-path]##`quarkus.mockserver.endpoint`##
 
 [.description]
 --
 Endpoint of the MockServer
+
 
 ifdef::add-copy-button-to-env-var[]
 Environment variable: env_var_with_copy_button:+++QUARKUS_MOCKSERVER_ENDPOINT+++[]
@@ -237,16 +235,16 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MOCKSERVER_ENDPOINT+++`
 endif::add-copy-button-to-env-var[]
---|string 
+--
+|string
 |`http://localhost:8080`
 
-
-a| [[quarkus-mockserver_quarkus-mockserver-client-host]]`link:#quarkus-mockserver_quarkus-mockserver-client-host[quarkus.mockserver.client.host]`
-
+a| [[quarkus-mockserver_quarkus-mockserver-client-host]] [.property-path]##`quarkus.mockserver.client.host`##
 
 [.description]
 --
 Host of the MockServer for the MockServerClient
+
 
 ifdef::add-copy-button-to-env-var[]
 Environment variable: env_var_with_copy_button:+++QUARKUS_MOCKSERVER_CLIENT_HOST+++[]
@@ -254,16 +252,16 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MOCKSERVER_CLIENT_HOST+++`
 endif::add-copy-button-to-env-var[]
---|string 
+--
+|string
 |`localhost`
 
-
-a| [[quarkus-mockserver_quarkus-mockserver-client-port]]`link:#quarkus-mockserver_quarkus-mockserver-client-port[quarkus.mockserver.client.port]`
-
+a| [[quarkus-mockserver_quarkus-mockserver-client-port]] [.property-path]##`quarkus.mockserver.client.port`##
 
 [.description]
 --
 Port of the MockServer for the MockServerClient
+
 
 ifdef::add-copy-button-to-env-var[]
 Environment variable: env_var_with_copy_button:+++QUARKUS_MOCKSERVER_CLIENT_PORT+++[]
@@ -271,7 +269,11 @@ endif::add-copy-button-to-env-var[]
 ifndef::add-copy-button-to-env-var[]
 Environment variable: `+++QUARKUS_MOCKSERVER_CLIENT_PORT+++`
 endif::add-copy-button-to-env-var[]
---|string 
+--
+|string
 |`1080`
 
 |===
+
+
+:!summaryTableId:

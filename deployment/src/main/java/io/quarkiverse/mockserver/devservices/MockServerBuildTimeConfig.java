@@ -1,11 +1,13 @@
 package io.quarkiverse.mockserver.devservices;
 
+import io.quarkus.runtime.annotations.ConfigDocFilename;
 import io.quarkus.runtime.annotations.ConfigPhase;
 import io.quarkus.runtime.annotations.ConfigRoot;
 import io.smallrye.config.ConfigMapping;
 import io.smallrye.config.WithName;
 import io.smallrye.config.WithParentName;
 
+@ConfigDocFilename("quarkus-mockserver.adoc")
 @ConfigRoot(phase = ConfigPhase.BUILD_TIME)
 @ConfigMapping(prefix = "quarkus.mockserver")
 public interface MockServerBuildTimeConfig {

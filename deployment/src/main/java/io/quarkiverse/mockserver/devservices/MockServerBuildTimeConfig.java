@@ -1,43 +1,29 @@
 package io.quarkiverse.mockserver.devservices;
 
-import java.util.Objects;
-
-import io.quarkus.runtime.annotations.ConfigGroup;
-import io.quarkus.runtime.annotations.ConfigItem;
+import io.quarkus.runtime.annotations.ConfigPhase;
 import io.quarkus.runtime.annotations.ConfigRoot;
+import io.smallrye.config.ConfigMapping;
+import io.smallrye.config.WithName;
+import io.smallrye.config.WithParentName;
 
-@ConfigRoot(name = "mockserver")
-public class MockServerBuildTimeConfig {
+@ConfigRoot(phase = ConfigPhase.BUILD_TIME)
+@ConfigMapping(prefix = "quarkus.mockserver")
+public interface MockServerBuildTimeConfig {
 
     /**
      * Default Dev services configuration.
      */
-    @ConfigItem(name = ConfigItem.PARENT)
-    public DevServiceConfiguration defaultDevService;
+    @WithParentName
+    DevServiceConfiguration defaultDevService();
 
-    @ConfigGroup
-    public static class DevServiceConfiguration {
+    interface DevServiceConfiguration {
         /**
          * Configuration for DevServices
          * <p>
          * DevServices allows Quarkus to automatically start MockServer in dev and test mode.
          */
-        @ConfigItem
-        public DevServicesConfig devservices;
+        @WithName("devservices")
+        DevServicesConfig devservices();
 
-        @Override
-        public boolean equals(Object o) {
-            if (this == o)
-                return true;
-            if (o == null || getClass() != o.getClass())
-                return false;
-            DevServiceConfiguration that = (DevServiceConfiguration) o;
-            return Objects.equals(devservices, that.devservices);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(devservices);
-        }
     }
 }

@@ -69,7 +69,7 @@ public class DevServicesMockServerProcessor {
             LoggingSetupBuildItem loggingSetupBuildItem,
             GlobalDevServicesConfig devServicesConfig) {
 
-        MockServerBuildTimeConfig.DevServiceConfiguration currentDevServicesConfiguration = config.defaultDevService;
+        MockServerBuildTimeConfig.DevServiceConfiguration currentDevServicesConfiguration = config.defaultDevService();
 
         // figure out if we need to shut down and restart existing MockServer containers
         // if not and the MockServer containers have already started we just return
@@ -95,7 +95,7 @@ public class DevServicesMockServerProcessor {
         try {
 
             devServices = startContainer(dockerStatusBuildItem,
-                    currentDevServicesConfiguration.devservices,
+                    currentDevServicesConfiguration.devservices(),
                     launchMode.getLaunchMode(),
                     !devServicesSharedNetworkBuildItem.isEmpty(), devServicesConfig.timeout);
             if (devServices == null) {
@@ -143,39 +143,39 @@ public class DevServicesMockServerProcessor {
     private DevServicesResultBuildItem.RunningDevService startContainer(DockerStatusBuildItem dockerStatusBuildItem,
             DevServicesConfig devServicesConfig, LaunchMode launchMode,
             boolean useSharedNetwork, Optional<Duration> timeout) {
-        if (!devServicesConfig.enabled) {
+        if (!devServicesConfig.enabled()) {
             // explicitly disabled
             log.debug("Not starting devservices for rest client as it has been disabled in the config");
             return null;
         }
 
-        if (!dockerStatusBuildItem.isDockerAvailable()) {
+        if (!dockerStatusBuildItem.isContainerRuntimeAvailable()) {
             log.warnf("Please configure '%s' or get a working MockServer instance", MockServerConfig.ENDPOINT);
             return null;
         }
 
         DockerImageName tmp = MOCKSERVER_IMAGE_NAME;
-        if (devServicesConfig.imageName.isPresent()) {
-            tmp = DockerImageName.parse(devServicesConfig.imageName.get())
+        if (devServicesConfig.imageName().isPresent()) {
+            tmp = DockerImageName.parse(devServicesConfig.imageName().get())
                     .asCompatibleSubstituteFor(DEFAULT_MOCKSERVER_CONTAINER_IMAGE);
         }
         DockerImageName dockerImageName = tmp;
 
         Supplier<DevServicesResultBuildItem.RunningDevService> defaultMockServerSupplier = () -> {
             QuarkusPortMockServerContainer container = new QuarkusPortMockServerContainer(dockerImageName,
-                    devServicesConfig.port,
-                    launchMode == DEVELOPMENT ? devServicesConfig.serviceName : null, useSharedNetwork);
+                    devServicesConfig.port(),
+                    launchMode == DEVELOPMENT ? devServicesConfig.serviceName() : null, useSharedNetwork);
             timeout.ifPresent(container::withStartupTimeout);
 
             // enabled or disable container logs
-            if (devServicesConfig.log) {
-                container.withLogConsumer(ContainerLogger.create(devServicesConfig.serviceName));
+            if (devServicesConfig.log()) {
+                container.withLogConsumer(ContainerLogger.create(devServicesConfig.serviceName()));
             }
 
             // Add mockserver configuration properties file
-            if (devServicesConfig.configFile.isPresent()) {
-                String configFile = devServicesConfig.configFile.get();
-                if (devServicesConfig.configClassPath) {
+            if (devServicesConfig.configFile().isPresent()) {
+                String configFile = devServicesConfig.configFile().get();
+                if (devServicesConfig.configClassPath()) {
                     container.withClasspathResourceMapping(configFile, "/config/mockserver.properties", BindMode.READ_ONLY);
                     log.infof(
                             "MockServer configuration local file '%s' mount to '/config/mockserver.properties' container file.",
@@ -194,10 +194,10 @@ public class DevServicesMockServerProcessor {
             }
 
             // mount directory with mocks
-            if (devServicesConfig.configDir.isPresent()) {
-                String configDir = devServicesConfig.configDir.get();
+            if (devServicesConfig.configDir().isPresent()) {
+                String configDir = devServicesConfig.configDir().get();
                 Path path = Path.of(configDir);
-                if (devServicesConfig.configClassPath) {
+                if (devServicesConfig.configClassPath()) {
                     container.withClasspathResourceMapping(configDir, "/" + path.getFileName(), BindMode.READ_ONLY);
                     log.infof("MockServer configuration class-path directory '%s' mount to '/%s' container directory.",
                             configDir,
@@ -215,7 +215,7 @@ public class DevServicesMockServerProcessor {
             }
 
             // enable test-container reuse
-            if (devServicesConfig.reuse) {
+            if (devServicesConfig.reuse()) {
                 container.withReuse(true);
             }
 
@@ -231,7 +231,7 @@ public class DevServicesMockServerProcessor {
                             MockServerConfig.CLIENT_PORT, "" + container.getServerPort()));
         };
 
-        return containerLocator.locateContainer(devServicesConfig.serviceName, devServicesConfig.shared, launchMode)
+        return containerLocator.locateContainer(devServicesConfig.serviceName(), devServicesConfig.shared(), launchMode)
                 .map(containerAddress -> {
 
                     return new DevServicesResultBuildItem.RunningDevService(FEATURE_NAME, containerAddress.getId(),

@@ -1,49 +1,57 @@
 package io.quarkiverse.mockserver.runtime;
 
-import io.quarkus.runtime.annotations.ConfigItem;
 import io.quarkus.runtime.annotations.ConfigPhase;
 import io.quarkus.runtime.annotations.ConfigRoot;
+import io.smallrye.config.ConfigMapping;
+import io.smallrye.config.WithDefault;
+import io.smallrye.config.WithName;
 
-@ConfigRoot(name = "mockserver", phase = ConfigPhase.RUN_TIME)
-public class MockServerConfig {
+@ConfigRoot(phase = ConfigPhase.RUN_TIME)
+@ConfigMapping(prefix = "quarkus.mockserver")
+public interface MockServerConfig {
 
-    public static String ENDPOINT = "quarkus.mockserver.endpoint";
+    String ENDPOINT = "quarkus.mockserver.endpoint";
 
-    public static String HOST = "quarkus.mockserver.host";
+    String HOST = "quarkus.mockserver.host";
 
-    public static String PORT = "quarkus.mockserver.port";
+    String PORT = "quarkus.mockserver.port";
 
-    public static String CLIENT_HOST = "quarkus.mockserver.client.host";
+    String CLIENT_HOST = "quarkus.mockserver.client.host";
 
-    public static String CLIENT_PORT = "quarkus.mockserver.client.port";
+    String CLIENT_PORT = "quarkus.mockserver.client.port";
 
     /**
      * Host of the MockServer
      */
-    @ConfigItem(name = "host", defaultValue = "localhost")
-    String host;
+    @WithName("host")
+    @WithDefault("localhost")
+    String host();
 
     /**
      * Port of the MockServer
      */
-    @ConfigItem(name = "port", defaultValue = "1080")
-    String port;
+    @WithName("port")
+    @WithDefault("1080")
+    String port();
 
     /**
      * Endpoint of the MockServer
      */
-    @ConfigItem(name = "endpoint", defaultValue = "http://localhost:8080")
-    String endpoint;
+    @WithName("endpoint")
+    @WithDefault("http://localhost:8080")
+    String endpoint();
 
     /**
      * Host of the MockServer for the MockServerClient
      */
-    @ConfigItem(name = "client.host", defaultValue = "localhost")
-    String clientHost;
+    @WithName("client.host")
+    @WithDefault("localhost")
+    String clientHost();
 
     /**
      * Port of the MockServer for the MockServerClient
      */
-    @ConfigItem(name = "client.port", defaultValue = "1080")
-    String clientPort;
+    @WithName("client.port")
+    @WithDefault("1080")
+    String clientPort();
 }

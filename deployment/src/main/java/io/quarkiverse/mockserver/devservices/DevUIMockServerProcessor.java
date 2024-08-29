@@ -22,7 +22,7 @@ public class DevUIMockServerProcessor {
 
         if (devServicesResultBuildItemList != null) {
             var mockServerService = devServicesResultBuildItemList.stream()
-                    .filter(x -> config.defaultDevService.devservices.serviceName.equals(x.getName()))
+                    .filter(x -> config.defaultDevService().devservices().serviceName().equals(x.getName()))
                     .findFirst().orElse(null);
             if (mockServerService != null) {
                 var keys = mockServerService.getConfig();

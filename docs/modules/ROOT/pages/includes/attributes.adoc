@@ -1,5 +1,5 @@
 :project-version: 1.11.0
-:quarkus-version: 3.13.2
+:quarkus-version: 3.14.1
 
 :quarkus-mockserver-url: https://github.com/quarkiverse/quarkus-mockserver
 

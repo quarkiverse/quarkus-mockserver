@@ -1,14 +1,12 @@
 package io.quarkiverse.mockserver.devservices;
 
-import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
 
-import io.quarkus.runtime.annotations.ConfigGroup;
-import io.quarkus.runtime.annotations.ConfigItem;
+import io.smallrye.config.WithDefault;
+import io.smallrye.config.WithName;
 
-@ConfigGroup
-public class DevServicesConfig {
+public interface DevServicesConfig {
 
     /**
      * If DevServices has been explicitly enabled or disabled. DevServices is generally enabled
@@ -17,28 +15,30 @@ public class DevServicesConfig {
      * When DevServices is enabled Quarkus will attempt to automatically configure and start
      * a database when running in Dev or Test mode and when Docker is running.
      */
-    @ConfigItem(name = "enabled", defaultValue = "true")
-    public boolean enabled;
+    @WithName("enabled")
+    @WithDefault("true")
+    boolean enabled();
 
     /**
      * Enabled or disable log of the mock-server
      */
-    @ConfigItem(name = "log", defaultValue = "false")
-    public boolean log;
+    @WithName("log")
+    @WithDefault("false")
+    boolean log();
 
     /**
      * The container image name to use, for container based DevServices providers.
      */
-    @ConfigItem(name = "image-name")
-    public Optional<String> imageName;
+    @WithName("image-name")
+    Optional<String> imageName();
 
     /**
      * Optional fixed port the dev service will listen to.
      * <p>
      * If not defined, the port will be chosen randomly.
      */
-    @ConfigItem(name = "port")
-    public OptionalInt port;
+    @WithName("port")
+    OptionalInt port();
 
     /**
      * Indicates if the MockServer server managed by Quarkus Dev Services is shared.
@@ -51,8 +51,9 @@ public class DevServicesConfig {
      * <p>
      * Container sharing is only used in dev mode.
      */
-    @ConfigItem(name = "shared", defaultValue = "true")
-    public boolean shared;
+    @WithName("shared")
+    @WithDefault("true")
+    boolean shared();
 
     /**
      * The value of the {@code quarkus-dev-service-mockserver} label attached to the started container.
@@ -64,21 +65,23 @@ public class DevServicesConfig {
      * <p>
      * This property is used when you need multiple shared MockServer servers.
      */
-    @ConfigItem(name = "service-name", defaultValue = "mock-server")
-    public String serviceName;
+    @WithName("service-name")
+    @WithDefault("mock-server")
+    String serviceName();
 
     /**
      * MockServer configuration file.
      */
-    @ConfigItem(name = "config-file")
-    public Optional<String> configFile;
+    @WithName("config-file")
+    Optional<String> configFile();
 
     /**
      * MockServer's configuration class-path binding. Useful for the test and CI builds.
      * When set to {@code true}, a test-container {@code withClasspathResourceMapping} method is used.
      */
-    @ConfigItem(name = "config-class-path", defaultValue = "false")
-    public boolean configClassPath;
+    @WithName("config-class-path")
+    @WithDefault("false")
+    boolean configClassPath();
 
     /**
      * Helper to define the stop strategy for containers created by DevServices.
@@ -90,31 +93,14 @@ public class DevServicesConfig {
      *
      * @see <a href="https://www.testcontainers.org/features/configuration/">Testcontainers Configuration</a>.
      */
-    @ConfigItem(name = "reuse", defaultValue = "false")
-    public boolean reuse;
+    @WithName("reuse")
+    @WithDefault("false")
+    boolean reuse();
 
     /**
      * The configuration directory to mount in the container /config.
      */
-    @ConfigItem(name = "config-dir")
-    public Optional<String> configDir;
+    @WithName("config-dir")
+    Optional<String> configDir();
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
-        DevServicesConfig that = (DevServicesConfig) o;
-        return enabled == that.enabled &&
-                Objects.equals(imageName, that.imageName) &&
-                Objects.equals(port, that.port) &&
-                Objects.equals(shared, that.shared) &&
-                Objects.equals(serviceName, that.serviceName);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(enabled, imageName, port, shared, serviceName);
-    }
 }

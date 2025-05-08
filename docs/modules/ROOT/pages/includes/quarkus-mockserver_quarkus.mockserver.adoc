@@ -1,4 +1,3 @@
-:summaryTableId: quarkus-mockserver_quarkus-mockserver
 [.configuration-legend]
 icon:lock[title=Fixed at build time] Configuration property fixed at build time - All other configuration properties are overridable at runtime
 [.configuration-reference.searchable, cols="80,.^10,.^10"]
@@ -9,6 +8,10 @@ h|Type
 h|Default
 
 a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-enabled]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-devservices-enabled[`quarkus.mockserver.devservices.enabled`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.mockserver.devservices.enabled+++[]
+endif::add-copy-button-to-config-props[]
+
 
 [.description]
 --
@@ -28,6 +31,10 @@ endif::add-copy-button-to-env-var[]
 |`true`
 
 a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-log]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-devservices-log[`quarkus.mockserver.devservices.log`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.mockserver.devservices.log+++[]
+endif::add-copy-button-to-config-props[]
+
 
 [.description]
 --
@@ -45,6 +52,10 @@ endif::add-copy-button-to-env-var[]
 |`false`
 
 a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-image-name]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-devservices-image-name[`quarkus.mockserver.devservices.image-name`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.mockserver.devservices.image-name+++[]
+endif::add-copy-button-to-config-props[]
+
 
 [.description]
 --
@@ -62,6 +73,10 @@ endif::add-copy-button-to-env-var[]
 |
 
 a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-port]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-devservices-port[`quarkus.mockserver.devservices.port`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.mockserver.devservices.port+++[]
+endif::add-copy-button-to-config-props[]
+
 
 [.description]
 --
@@ -81,6 +96,10 @@ endif::add-copy-button-to-env-var[]
 |
 
 a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-shared]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-devservices-shared[`quarkus.mockserver.devservices.shared`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.mockserver.devservices.shared+++[]
+endif::add-copy-button-to-config-props[]
+
 
 [.description]
 --
@@ -102,6 +121,10 @@ endif::add-copy-button-to-env-var[]
 |`true`
 
 a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-service-name]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-devservices-service-name[`quarkus.mockserver.devservices.service-name`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.mockserver.devservices.service-name+++[]
+endif::add-copy-button-to-config-props[]
+
 
 [.description]
 --
@@ -121,6 +144,10 @@ endif::add-copy-button-to-env-var[]
 |`mock-server`
 
 a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-config-file]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-devservices-config-file[`quarkus.mockserver.devservices.config-file`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.mockserver.devservices.config-file+++[]
+endif::add-copy-button-to-config-props[]
+
 
 [.description]
 --
@@ -138,6 +165,10 @@ endif::add-copy-button-to-env-var[]
 |
 
 a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-config-class-path]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-devservices-config-class-path[`quarkus.mockserver.devservices.config-class-path`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.mockserver.devservices.config-class-path+++[]
+endif::add-copy-button-to-config-props[]
+
 
 [.description]
 --
@@ -155,6 +186,10 @@ endif::add-copy-button-to-env-var[]
 |`false`
 
 a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-reuse]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-devservices-reuse[`quarkus.mockserver.devservices.reuse`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.mockserver.devservices.reuse+++[]
+endif::add-copy-button-to-config-props[]
+
 
 [.description]
 --
@@ -172,6 +207,10 @@ endif::add-copy-button-to-env-var[]
 |`false`
 
 a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-config-dir]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-devservices-config-dir[`quarkus.mockserver.devservices.config-dir`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.mockserver.devservices.config-dir+++[]
+endif::add-copy-button-to-config-props[]
+
 
 [.description]
 --
@@ -189,6 +228,10 @@ endif::add-copy-button-to-env-var[]
 |
 
 a| [[quarkus-mockserver_quarkus-mockserver-host]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-host[`quarkus.mockserver.host`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.mockserver.host+++[]
+endif::add-copy-button-to-config-props[]
+
 
 [.description]
 --
@@ -206,6 +249,10 @@ endif::add-copy-button-to-env-var[]
 |`localhost`
 
 a| [[quarkus-mockserver_quarkus-mockserver-port]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-port[`quarkus.mockserver.port`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.mockserver.port+++[]
+endif::add-copy-button-to-config-props[]
+
 
 [.description]
 --
@@ -223,6 +270,10 @@ endif::add-copy-button-to-env-var[]
 |`1080`
 
 a| [[quarkus-mockserver_quarkus-mockserver-endpoint]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-endpoint[`quarkus.mockserver.endpoint`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.mockserver.endpoint+++[]
+endif::add-copy-button-to-config-props[]
+
 
 [.description]
 --
@@ -240,6 +291,10 @@ endif::add-copy-button-to-env-var[]
 |`http://localhost:8080`
 
 a| [[quarkus-mockserver_quarkus-mockserver-client-host]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-client-host[`quarkus.mockserver.client.host`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.mockserver.client.host+++[]
+endif::add-copy-button-to-config-props[]
+
 
 [.description]
 --
@@ -257,6 +312,10 @@ endif::add-copy-button-to-env-var[]
 |`localhost`
 
 a| [[quarkus-mockserver_quarkus-mockserver-client-port]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-client-port[`quarkus.mockserver.client.port`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.mockserver.client.port+++[]
+endif::add-copy-button-to-config-props[]
+
 
 [.description]
 --
@@ -275,5 +334,3 @@ endif::add-copy-button-to-env-var[]
 
 |===
 
-
-:!summaryTableId:

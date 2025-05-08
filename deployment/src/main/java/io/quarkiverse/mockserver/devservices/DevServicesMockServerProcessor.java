@@ -27,7 +27,7 @@ import io.quarkus.deployment.builditem.DockerStatusBuildItem;
 import io.quarkus.deployment.builditem.LaunchModeBuildItem;
 import io.quarkus.deployment.console.ConsoleInstalledBuildItem;
 import io.quarkus.deployment.console.StartupLogCompressor;
-import io.quarkus.deployment.dev.devservices.GlobalDevServicesConfig;
+import io.quarkus.deployment.dev.devservices.DevServicesConfig;
 import io.quarkus.deployment.logging.LoggingSetupBuildItem;
 import io.quarkus.devservices.common.ConfigureUtil;
 import io.quarkus.devservices.common.ContainerLocator;
@@ -59,7 +59,7 @@ public class DevServicesMockServerProcessor {
     private static volatile MockServerBuildTimeConfig.DevServiceConfiguration capturedDevServicesConfiguration;
     private static volatile boolean first = true;
 
-    @BuildStep(onlyIfNot = IsNormal.class, onlyIf = { GlobalDevServicesConfig.Enabled.class })
+    @BuildStep(onlyIfNot = IsNormal.class, onlyIf = { DevServicesConfig.Enabled.class })
     public DevServicesResultBuildItem startMockServerContainers(LaunchModeBuildItem launchMode,
             DockerStatusBuildItem dockerStatusBuildItem,
             List<DevServicesSharedNetworkBuildItem> devServicesSharedNetworkBuildItem,
@@ -67,7 +67,7 @@ public class DevServicesMockServerProcessor {
             Optional<ConsoleInstalledBuildItem> consoleInstalledBuildItem,
             CuratedApplicationShutdownBuildItem closeBuildItem,
             LoggingSetupBuildItem loggingSetupBuildItem,
-            GlobalDevServicesConfig devServicesConfig) {
+            DevServicesConfig devServicesConfig) {
 
         MockServerBuildTimeConfig.DevServiceConfiguration currentDevServicesConfiguration = config.defaultDevService();
 
@@ -97,7 +97,7 @@ public class DevServicesMockServerProcessor {
             devServices = startContainer(dockerStatusBuildItem,
                     currentDevServicesConfiguration.devservices(),
                     launchMode.getLaunchMode(),
-                    !devServicesSharedNetworkBuildItem.isEmpty(), devServicesConfig.timeout);
+                    !devServicesSharedNetworkBuildItem.isEmpty(), devServicesConfig.timeout());
             if (devServices == null) {
                 compressor.closeAndDumpCaptured();
             } else {
@@ -141,7 +141,7 @@ public class DevServicesMockServerProcessor {
     }
 
     private DevServicesResultBuildItem.RunningDevService startContainer(DockerStatusBuildItem dockerStatusBuildItem,
-            DevServicesConfig devServicesConfig, LaunchMode launchMode,
+            DevMockServerServicesConfig devServicesConfig, LaunchMode launchMode,
             boolean useSharedNetwork, Optional<Duration> timeout) {
         if (!devServicesConfig.enabled()) {
             // explicitly disabled

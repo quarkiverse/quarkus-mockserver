@@ -23,7 +23,7 @@ public interface MockServerBuildTimeConfig {
          * DevServices allows Quarkus to automatically start MockServer in dev and test mode.
          */
         @WithName("devservices")
-        DevServicesConfig devservices();
+        DevMockServerServicesConfig devservices();
 
     }
 }

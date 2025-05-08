@@ -6,7 +6,7 @@ import java.util.OptionalInt;
 import io.smallrye.config.WithDefault;
 import io.smallrye.config.WithName;
 
-public interface DevServicesConfig {
+public interface DevMockServerServicesConfig {
 
     /**
      * If DevServices has been explicitly enabled or disabled. DevServices is generally enabled

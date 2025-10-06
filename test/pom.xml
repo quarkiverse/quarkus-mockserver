@@ -4,7 +4,7 @@
   <parent>
     <groupId>io.quarkiverse.mockserver</groupId>
     <artifactId>quarkus-mockserver-parent</artifactId>
-    <version>1.15.0</version>
+    <version>999-SNAPSHOT</version>
   </parent>
   <artifactId>quarkus-mockserver-test</artifactId>
   <name>Quarkus Mockserver - Test</name>

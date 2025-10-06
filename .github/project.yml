@@ -1,5 +1,5 @@
 name: MockServer Quarkus test extension
 release:
-  current-version: "1.14.0"
+  current-version: "1.15.0"
   next-version: "999-SNAPSHOT"
 

@@ -28,7 +28,7 @@ Environment variable: `+++QUARKUS_MOCKSERVER_DEVSERVICES_ENABLED+++`
 endif::add-copy-button-to-env-var[]
 --
 |boolean
-|`true`
+|`+++true+++`
 
 a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-log]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-devservices-log[`quarkus.mockserver.devservices.log`]##
 ifdef::add-copy-button-to-config-props[]
@@ -49,7 +49,7 @@ Environment variable: `+++QUARKUS_MOCKSERVER_DEVSERVICES_LOG+++`
 endif::add-copy-button-to-env-var[]
 --
 |boolean
-|`false`
+|`+++false+++`
 
 a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-image-name]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-devservices-image-name[`quarkus.mockserver.devservices.image-name`]##
 ifdef::add-copy-button-to-config-props[]
@@ -118,7 +118,7 @@ Environment variable: `+++QUARKUS_MOCKSERVER_DEVSERVICES_SHARED+++`
 endif::add-copy-button-to-env-var[]
 --
 |boolean
-|`true`
+|`+++true+++`
 
 a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-service-name]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-devservices-service-name[`quarkus.mockserver.devservices.service-name`]##
 ifdef::add-copy-button-to-config-props[]
@@ -141,7 +141,7 @@ Environment variable: `+++QUARKUS_MOCKSERVER_DEVSERVICES_SERVICE_NAME+++`
 endif::add-copy-button-to-env-var[]
 --
 |string
-|`mock-server`
+|`+++mock-server+++`
 
 a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-config-file]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-devservices-config-file[`quarkus.mockserver.devservices.config-file`]##
 ifdef::add-copy-button-to-config-props[]
@@ -183,7 +183,7 @@ Environment variable: `+++QUARKUS_MOCKSERVER_DEVSERVICES_CONFIG_CLASS_PATH+++`
 endif::add-copy-button-to-env-var[]
 --
 |boolean
-|`false`
+|`+++false+++`
 
 a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-reuse]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-devservices-reuse[`quarkus.mockserver.devservices.reuse`]##
 ifdef::add-copy-button-to-config-props[]
@@ -204,7 +204,7 @@ Environment variable: `+++QUARKUS_MOCKSERVER_DEVSERVICES_REUSE+++`
 endif::add-copy-button-to-env-var[]
 --
 |boolean
-|`false`
+|`+++false+++`
 
 a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-config-dir]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-devservices-config-dir[`quarkus.mockserver.devservices.config-dir`]##
 ifdef::add-copy-button-to-config-props[]
@@ -246,7 +246,7 @@ Environment variable: `+++QUARKUS_MOCKSERVER_HOST+++`
 endif::add-copy-button-to-env-var[]
 --
 |string
-|`localhost`
+|`+++localhost+++`
 
 a| [[quarkus-mockserver_quarkus-mockserver-port]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-port[`quarkus.mockserver.port`]##
 ifdef::add-copy-button-to-config-props[]
@@ -267,7 +267,7 @@ Environment variable: `+++QUARKUS_MOCKSERVER_PORT+++`
 endif::add-copy-button-to-env-var[]
 --
 |string
-|`1080`
+|`+++1080+++`
 
 a| [[quarkus-mockserver_quarkus-mockserver-endpoint]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-endpoint[`quarkus.mockserver.endpoint`]##
 ifdef::add-copy-button-to-config-props[]
@@ -288,7 +288,7 @@ Environment variable: `+++QUARKUS_MOCKSERVER_ENDPOINT+++`
 endif::add-copy-button-to-env-var[]
 --
 |string
-|`http://localhost:8080`
+|`+++http://localhost:8080+++`
 
 a| [[quarkus-mockserver_quarkus-mockserver-client-host]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-client-host[`quarkus.mockserver.client.host`]##
 ifdef::add-copy-button-to-config-props[]
@@ -309,7 +309,7 @@ Environment variable: `+++QUARKUS_MOCKSERVER_CLIENT_HOST+++`
 endif::add-copy-button-to-env-var[]
 --
 |string
-|`localhost`
+|`+++localhost+++`
 
 a| [[quarkus-mockserver_quarkus-mockserver-client-port]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-client-port[`quarkus.mockserver.client.port`]##
 ifdef::add-copy-button-to-config-props[]
@@ -330,7 +330,7 @@ Environment variable: `+++QUARKUS_MOCKSERVER_CLIENT_PORT+++`
 endif::add-copy-button-to-env-var[]
 --
 |string
-|`1080`
+|`+++1080+++`
 
 |===
 

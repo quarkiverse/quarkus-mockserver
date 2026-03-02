@@ -28,7 +28,7 @@
     </dependency>
     <dependency>
       <groupId>org.testcontainers</groupId>
-      <artifactId>mockserver</artifactId>
+      <artifactId>testcontainers-mockserver</artifactId>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>

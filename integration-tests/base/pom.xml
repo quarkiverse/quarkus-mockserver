@@ -8,6 +8,7 @@
   </parent>
   <artifactId>quarkus-mockserver-integration-tests-base</artifactId>
   <name>Quarkus Mockserver - Base Integration Tests</name>
+  <packaging>quarkus</packaging>
 
   <dependencies>
     <dependency>

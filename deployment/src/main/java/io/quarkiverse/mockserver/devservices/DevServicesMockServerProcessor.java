@@ -13,8 +13,8 @@ import java.util.function.Supplier;
 
 import org.jboss.logging.Logger;
 import org.testcontainers.containers.BindMode;
-import org.testcontainers.containers.MockServerContainer;
 import org.testcontainers.containers.Network;
+import org.testcontainers.mockserver.MockServerContainer;
 import org.testcontainers.utility.DockerImageName;
 
 import io.quarkiverse.mockserver.runtime.MockServerConfig;

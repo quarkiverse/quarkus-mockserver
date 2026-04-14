@@ -17,19 +17,19 @@ import io.quarkus.test.junit.QuarkusTest;
 @QuarkusTest
 public class IssueTest extends AbstractTest {
 
-        @InjectMockServerClient
-        MockServerClient mockServerClient;
+    @InjectMockServerClient
+    MockServerClient mockServerClient;
 
-        @Test
-        public void testUpsertDoesNotThrowNoClassDefFoundError() {
-                mockServerClient.upsert(
-                                new Expectation(
-                                                request()
-                                                                .withPath("/issue-149")
-                                                                .withMethod("GET"))
-                                                .thenRespond(
-                                                                response()
-                                                                                .withStatusCode(200)
-                                                                                .withBody("Fixed!")));
-        }
+    @Test
+    public void testUpsertDoesNotThrowNoClassDefFoundError() {
+        mockServerClient.upsert(
+                new Expectation(
+                        request()
+                                .withPath("/issue-149")
+                                .withMethod("GET"))
+                        .thenRespond(
+                                response()
+                                        .withStatusCode(200)
+                                        .withBody("Fixed!")));
+    }
 }

@@ -54,6 +54,18 @@
         <artifactId>mockserver-client-java</artifactId>
         <version>${mockserver-client.version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.mock-server</groupId>
+        <artifactId>mockserver-client-java</artifactId>
+        <version>${mockserver-client.version}</version>
+        <classifier>shaded</classifier>
+        <exclusions>
+          <exclusion>
+            <groupId>*</groupId>
+            <artifactId>*</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
     </dependencies>
   </dependencyManagement>
   <build>

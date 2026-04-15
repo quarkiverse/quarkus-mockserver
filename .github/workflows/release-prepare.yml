@@ -1,27 +1,22 @@
-name: Quarkiverse Perform Release
-run-name: Perform ${{github.event.inputs.tag || github.ref_name}} Release
+name: Quarkiverse Prepare Release
+
 on:
-  push:
-    tags:
-      - '*'
   workflow_dispatch:
-    inputs:
-      tag:
-        description: 'Tag to release'
-        required: true
+  pull_request:
+    types: [ closed ]
+    paths:
+      - '.github/project.yml'
 
 permissions:
   contents: read
-
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  perform-release:
-    name: Perform Release
-    uses: quarkiverse/.github/.github/workflows/perform-release.yml@main
+  prepare-release:
+    name: Prepare Release
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true}}
+    uses: quarkiverse/.github/.github/workflows/prepare-release.yml@main
     secrets: inherit
-    with:
-      version: ${{github.event.inputs.tag || github.ref_name}}

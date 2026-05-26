@@ -15,8 +15,7 @@
     </dependency>
     <dependency>
       <groupId>org.mock-server</groupId>
-      <artifactId>mockserver-client-java</artifactId>
-      <classifier>shaded</classifier>
+      <artifactId>mockserver-client-java-no-dependencies</artifactId>
     </dependency>
     <dependency>
       <groupId>io.quarkiverse.mockserver</groupId>

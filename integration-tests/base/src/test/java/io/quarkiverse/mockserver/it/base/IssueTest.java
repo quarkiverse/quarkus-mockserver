@@ -3,6 +3,7 @@ package io.quarkiverse.mockserver.it.base;
 import static org.mockserver.model.HttpRequest.request;
 import static org.mockserver.model.HttpResponse.response;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.mockserver.client.MockServerClient;
 import org.mockserver.mock.Expectation;
@@ -19,6 +20,11 @@ public class IssueTest extends AbstractTest {
 
     @InjectMockServerClient
     MockServerClient mockServerClient;
+
+    @AfterEach
+    public void resetMockServerClient() {
+        mockServerClient.reset();
+    }
 
     @Test
     public void testUpsertDoesNotThrowNoClassDefFoundError() {

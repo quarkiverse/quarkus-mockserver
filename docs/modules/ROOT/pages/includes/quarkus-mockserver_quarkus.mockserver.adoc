@@ -227,6 +227,29 @@ endif::add-copy-button-to-env-var[]
 |string
 |
 
+a|icon:lock[title=Fixed at build time] [[quarkus-mockserver_quarkus-mockserver-devservices-attempt-to-proxy-if-no-matching-expectation]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-devservices-attempt-to-proxy-if-no-matching-expectation[`+++quarkus.mockserver.devservices.attempt-to-proxy-if-no-matching-expectation+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.mockserver.devservices.attempt-to-proxy-if-no-matching-expectation+++[]
+endif::add-copy-button-to-config-props[]
+
+
+[.description]
+--
+If true (the default) when no matching expectation is found, and the host header of the request does not match MockServer's host, then MockServer attempts to proxy the request. If the upstream server is unreachable (connection refused, TLS error, timeout, etc.) a 502 Bad Gateway is returned. If no matching expectation is found and the request is not eligible for proxying, a 404 is returned.
+
+If false when no matching expectation is found, and MockServer is not being used as a proxy, then MockServer always returns a 404 immediately.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MOCKSERVER_DEVSERVICES_ATTEMPT_TO_PROXY_IF_NO_MATCHING_EXPECTATION+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_MOCKSERVER_DEVSERVICES_ATTEMPT_TO_PROXY_IF_NO_MATCHING_EXPECTATION+++`
+endif::add-copy-button-to-env-var[]
+--
+|boolean
+|`+++false+++`
+
 a| [[quarkus-mockserver_quarkus-mockserver-host]] [.property-path]##link:#quarkus-mockserver_quarkus-mockserver-host[`+++quarkus.mockserver.host+++`]##
 ifdef::add-copy-button-to-config-props[]
 config_property_copy_button:+++quarkus.mockserver.host+++[]

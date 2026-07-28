@@ -50,7 +50,7 @@ public class DevServicesMockServerProcessor {
 
     private static final String DEFAULT_MOCKSERVER_CONTAINER_IMAGE = "mockserver/mockserver";
 
-    private static final String DEFAULT_MOCKSERVER_VERSION = "5.15.0";
+    private static final String DEFAULT_MOCKSERVER_VERSION = "7.3.0";
 
     private static final DockerImageName MOCKSERVER_IMAGE_NAME = DockerImageName.parse(DEFAULT_MOCKSERVER_CONTAINER_IMAGE)
             .withTag(DEFAULT_MOCKSERVER_VERSION);
@@ -218,6 +218,12 @@ public class DevServicesMockServerProcessor {
             if (devServicesConfig.reuse()) {
                 container.withReuse(true);
             }
+
+            // whether to deactivate attempts to redirect when non-matching
+            // default from configuration is false, because in tests, most users want a 404 when no request is matching
+            // without this, they would then get a 502 bad gateway
+            container.addEnv("MOCKSERVER_ATTEMPT_TO_PROXY_IF_NO_MATCHING_EXPECTATION",
+                    Boolean.toString(devServicesConfig.attemptToProxyIfNoMatchingExpectation()));
 
             // start test-container
             container.start();

@@ -10,6 +10,7 @@ import java.util.Map;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockserver.client.MockServerClient;
@@ -24,6 +25,11 @@ public class ExampleRestControllerTest extends AbstractTest {
 
     @InjectMockServerClient
     MockServerClient mockServerClient;
+
+    @AfterEach
+    public void resetMockServerClient() {
+        mockServerClient.reset();
+    }
 
     @Test
     public void test200() {

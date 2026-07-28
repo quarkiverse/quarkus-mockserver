@@ -103,4 +103,20 @@ public interface DevMockServerServicesConfig {
     @WithName("config-dir")
     Optional<String> configDir();
 
+    /**
+     * If true (the default) when no matching expectation is found, and the host header of the request does not match
+     * MockServer's host, then MockServer attempts to proxy the request. If the upstream server is unreachable
+     * (connection refused, TLS error, timeout, etc.) a 502 Bad Gateway is returned. If no matching expectation is
+     * found and the request is not eligible for proxying, a 404 is returned.
+     * <p>
+     * If false when no matching expectation is found, and MockServer is not being used as a proxy, then MockServer
+     * always returns a 404 immediately.
+     *
+     * @see <a href="https://www.mock-server.com/mock_server/configuration_properties.html">mock-server properties
+     *      documentation</a>
+     */
+    @WithDefault("false")
+    @WithName("attempt-to-proxy-if-no-matching-expectation")
+    boolean attemptToProxyIfNoMatchingExpectation();
+
 }

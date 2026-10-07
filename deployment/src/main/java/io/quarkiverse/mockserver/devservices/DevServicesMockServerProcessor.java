@@ -50,7 +50,7 @@ public class DevServicesMockServerProcessor {
 
     private static final String DEFAULT_MOCKSERVER_CONTAINER_IMAGE = "mockserver/mockserver";
 
-    private static final String DEFAULT_MOCKSERVER_VERSION = "7.6.0";
+    private static final String DEFAULT_MOCKSERVER_VERSION = "8.0.0";
 
     private static final DockerImageName MOCKSERVER_IMAGE_NAME = DockerImageName.parse(DEFAULT_MOCKSERVER_CONTAINER_IMAGE)
             .withTag(DEFAULT_MOCKSERVER_VERSION);
